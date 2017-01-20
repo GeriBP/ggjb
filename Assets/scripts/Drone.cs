@@ -29,16 +29,15 @@ public class Drone : MonoBehaviour, IEnemy
 		currentMovementDirection = new Vector2(1, 1).normalized;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
-		var movement = currentMovementDirection * movementSpeed * Time.deltaTime;
-		rigidbody.AddForce(movement);
+		rigidbody.velocity = currentMovementDirection * movementSpeed * Time.fixedDeltaTime;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		// Bounce and change direction away from the object we collided with.
-		currentMovementDirection = collision.contacts[0].normal;
+		currentMovementDirection = Vector2.Reflect(currentMovementDirection, collision.contacts[0].normal);
 	}
 
     public void DealDamage()
