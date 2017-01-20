@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerMove : MonoBehaviour {
-    public float speed, smooth;
+    public float speed, smooth, pickUpPoints;
+    public gameManager GM;
     private Rigidbody2D myRb;
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,18 @@ public class playerMove : MonoBehaviour {
         if (myRb.velocity.magnitude > 0)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), smooth);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            //DIE
+        }
+        if (other.tag == "PickUp")
+        {
+            GM.addWave(pickUpPoints);
         }
     }
 }
