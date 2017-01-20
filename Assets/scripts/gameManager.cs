@@ -22,6 +22,10 @@ public class gameManager : MonoBehaviour {
     {
         ++time;
         //waveBar.value++; //Descrease/increase wave with time
+        if (time == 4.0f)//example wave
+        {
+            //Instantiate wave 1
+        }
         yield return new WaitForSeconds(0.1f);
         StartCoroutine("clockTick");
     }
