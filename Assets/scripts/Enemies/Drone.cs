@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 public class Drone : MonoBehaviour, IEnemy 
 {
 	[SerializeField]
-	private float movementSpeed = 1f;
+	private float movementSpeed = 200f;
 
 	private Vector2 currentMovementDirection;
 
@@ -48,6 +48,7 @@ public class Drone : MonoBehaviour, IEnemy
 
     public void TakeHit()
     {
+		// TODO: play animation and destroy self
         throw new NotImplementedException();
     }
 }
