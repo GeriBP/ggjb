@@ -38,8 +38,8 @@ public class Kamikaze : MonoBehaviour, IEnemy
 	void FixedUpdate () 
 	{
 		var toPlayer = (target.position - transform.position).normalized;
-		var newForce = toPlayer * movementSpeed * Time.fixedDeltaTime;
-		rigidbody.AddForce(newForce);
+		var newVelocity = toPlayer * movementSpeed * Time.fixedDeltaTime;
+		rigidbody.velocity = newVelocity;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
