@@ -45,7 +45,7 @@ public class playerMove : MonoBehaviour {
         }
     }
 
-    public void DealDamage()
+    public void TakeHit()
     {   
         // Die after 1 hit.
         Debug.Log("Game over");
