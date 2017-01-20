@@ -45,12 +45,14 @@ public class playerMove : MonoBehaviour {
         }
     }
 
+    public void DealDamage()
+    {   
+        // Die after 1 hit.
+        Debug.Log("Game over");
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
-        {
-            //DIE
-        }
         if (other.tag == "PickUp")
         {
             GM.addWave(pickUpPoints);
