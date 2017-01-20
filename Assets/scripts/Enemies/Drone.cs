@@ -36,11 +36,17 @@ public class Drone : MonoBehaviour, IEnemy
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		var player = collision.gameObject.GetComponent<playerMove>();
+		if (player != null)
+		{
+			player.TakeHit();
+		}
+
 		// Bounce and change direction away from the object we collided with.
 		currentMovementDirection = Vector2.Reflect(currentMovementDirection, collision.contacts[0].normal);
 	}
 
-    public void DealDamage()
+    public void TakeHit()
     {
         throw new NotImplementedException();
     }

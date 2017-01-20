@@ -7,5 +7,5 @@ using UnityEngine;
 /// </summary>
 public interface IEnemy 
 {
-	void DealDamage();
+	void TakeHit();
 }
