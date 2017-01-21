@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour {
     public cameraShake cShake;
     public gameManager GM;
     private Rigidbody2D myRb;
-    public GameObject reconnectScreen;
+    public GameObject reconnectScreen, explosion;
     public shockWave wave;
     private bool waveAvailable = true;
 
@@ -85,11 +85,8 @@ public class playerMove : MonoBehaviour {
     }
 
     public void TakeHit()
-    {   
-        // Die after 1 hit.
-        Debug.Log("Game over");
-        reconnectScreen.SetActive(true);
-        
+    {
+        StartCoroutine("death");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -127,5 +124,12 @@ public class playerMove : MonoBehaviour {
         waveAvailable = false;
         yield return new WaitForSeconds(2.0f);
         waveAvailable = true;
+    }
+    IEnumerator death()
+    {
+        GetComponent<SpriteRenderer>().sprite = null;
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2.0f);
+        reconnectScreen.SetActive(true);
     }
 }

@@ -236,6 +236,7 @@ MonoBehaviour:
   cShake: {fileID: 0}
   GM: {fileID: 0}
   reconnectScreen: {fileID: 0}
+  explosion: {fileID: 1421413779020934, guid: 4ed5e67b9ce4afe40a63bf8e34f60245, type: 2}
   wave: {fileID: 114026853890443544, guid: 6dd3e933ada75c747a42ed7fc5544c0c, type: 2}
 --- !u!114 &114955063609366310
 MonoBehaviour:
