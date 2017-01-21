@@ -460,8 +460,8 @@ MonoBehaviour:
   slowCharacterDelay: 0.1
   text: "login: \\sroot\\f\npassword: \\s********\\f\n\nLast login: 21/01/2088\n\nroot@hack_station:~#
     \\scat ~/diary-latest.txt\\f \\e\n\nEverything is ready for the cyber attack on
-    Robobank.\n\nThe plan:\n - Break through the 10 levels of firewalls\n - Moving
-    around the system gain information\n - Steal information from the defence systems
+    Robobank.\n\nThe plan:\n - Break through the 10 levels of firewalls\n - Move around
+    the system to gain information\n - Steal information from the defence systems
     by moving near them\n - Use information against the defences with [space]\n -
     Don't touch the defence systems!\n - Decrypt the database keeper\n\\e\n\nroot@hack_station:~#
     ./start-hack --ip=124.231.98.131 --force --hat=black\\b   \n"
