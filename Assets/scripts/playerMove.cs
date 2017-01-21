@@ -149,4 +149,12 @@ public class playerMove : MonoBehaviour {
         yield return new WaitForSeconds(2.0f);
         reconnectScreen.SetActive(true);
     }
+    public void revive()
+    {
+        deathBool = false;
+        transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<TrailRenderer>().enabled = true;
+        reconnectScreen.SetActive(false);
+    }
 }

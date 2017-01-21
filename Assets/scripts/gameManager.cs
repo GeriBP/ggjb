@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour {
     private int currentWave = 0;
     public static int enemiesAlive;
     private GameObject currentGo;
+    public playerMove player;
     // Use this for initialization
     void Start () {
         time = 0;
@@ -75,6 +76,7 @@ public class gameManager : MonoBehaviour {
         enemiesAlive = nEnemies[currentWave];
         Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         StartCoroutine("spawner");
+        player.revive();
     }
 
     IEnumerator spawner()

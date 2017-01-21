@@ -145,8 +145,10 @@ MonoBehaviour:
   wave1: {fileID: 1496739856975608, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
   waves:
   - {fileID: 1313499887950018, guid: f02c96d34345389449607f0022533e65, type: 2}
+  - {fileID: 1496739856975608, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
   - {fileID: 1231556671105674, guid: c21f3bc185526134f95bec6c3e80e3ba, type: 2}
-  nEnemies: 0200000008000000
+  nEnemies: 020000000400000008000000
+  player: {fileID: 0}
 --- !u!124 &124864736240046498
 Behaviour:
   m_ObjectHideFlags: 1
