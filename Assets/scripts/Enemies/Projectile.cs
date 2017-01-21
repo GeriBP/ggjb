@@ -18,16 +18,18 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// How long to wait before automatically destroying self
     /// </summary>
-    private static readonly float lifespan = 10f;
+    private static readonly float lifespan = 5f;
+    public float speed;
 
     void Start()
     {
+        GetComponent<Rigidbody2D>().velocity = new Vector3(Direction.x*speed, Direction.y*speed, 0.0f);
         Destroy(gameObject, lifespan);
     }
 
     void Update()
     {
-        transform.position = (Vector2)transform.position + Direction * MovementSpeed * Time.deltaTime;
+        //transform.position = (Vector2)transform.position + Direction * MovementSpeed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
