@@ -12,7 +12,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Drone : MonoBehaviour, IEnemy 
 {
-    public GameObject wavePoints, pixelExplosion;
+	[SerializeField]
+    private GameObject wavePoints, pixelExplosion;
 
 	[SerializeField]
 	private float movementSpeed = 3f;

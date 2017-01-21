@@ -11,6 +11,9 @@ using UnityEngine.Assertions;
 public class Kamikaze : MonoBehaviour, IEnemy
 {
 	[SerializeField]
+    private GameObject wavePoints, pixelExplosion;
+	
+	[SerializeField]
 	private float movementSpeed = 3f;
 
 	private new Rigidbody2D rigidbody;
@@ -60,7 +63,12 @@ public class Kamikaze : MonoBehaviour, IEnemy
 
     public void TakeHit(float damage)
     {
-		// TODO: play animation and destroy self
-        throw new NotImplementedException();
+        for (int i = 0; i < 3; ++i)
+        {
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(transform.position.x - 0.2f, transform.position.x + 0.2f), UnityEngine.Random.Range(transform.position.y - 0.2f, transform.position.y + 0.2f), 0.0f);
+            Instantiate(wavePoints, spawnPos, Quaternion.identity);
+        }
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
