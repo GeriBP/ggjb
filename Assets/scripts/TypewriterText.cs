@@ -28,7 +28,7 @@ public class TypewriterText : MonoBehaviour
 
 	private Text uiText;
 
-	private bool waitingForEnterPress = false;
+	private bool waitingForKeyPress = false;
 	private string oldText;
 	private bool promptVisible = false;
 	private float timePromptLastShown;
@@ -47,7 +47,7 @@ public class TypewriterText : MonoBehaviour
 
 	void Update()
 	{
-		if (waitingForEnterPress)
+		if (waitingForKeyPress)
 		{
 			if (Time.time - timePromptLastShown >= enterPromptDuration)
 			{
@@ -58,15 +58,15 @@ public class TypewriterText : MonoBehaviour
 				}
 				else
 				{
-					uiText.text = oldText + "\n[enter]";
+					uiText.text = oldText + "\n[press any key]";
 				}
 				promptVisible = !promptVisible;
 				timePromptLastShown = Time.time;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Input.anyKeyDown)
 			{
-				waitingForEnterPress = false;
+				waitingForKeyPress = false;
 				uiText.text = string.Empty;
 			}
 			return;
@@ -90,7 +90,7 @@ public class TypewriterText : MonoBehaviour
 						currentCharacterDelay = fastCharacterDelay;
 						break;
 					case 'e':
-						waitingForEnterPress = true;
+						waitingForKeyPress = true;
 						oldText = uiText.text;
 						break;
 					case '\\':

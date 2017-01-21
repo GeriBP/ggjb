@@ -414,7 +414,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f1db8eb606b2bef4ea49eeb44b5c0d33, type: 3}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -450,7 +450,8 @@ MonoBehaviour:
     Robobank.\n\nThe plan:\n - Break through the 10 levels of firewalls\n - Moving
     around the system grants you information\n - Steal energy from the defence systems
     by moving near them\n - Use information against the defences with [space]\n -
-    Don't touch the defence systems!\n - Decrypt the database keeper\n\\e\n"
+    Don't touch the defence systems!\n - Decrypt the database keeper\n\\e\n\nroot@hack_station:~#
+    ./start-hack --ip=124.231.98.131 --force --hat=black\\e"
   enterPromptDuration: 0.5
 --- !u!1 &1629215680
 GameObject:
