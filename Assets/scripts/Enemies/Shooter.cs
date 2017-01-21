@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 public class Shooter : MonoBehaviour, IEnemy
 {
 	[SerializeField]
-    private GameObject wavePoints, pixelExplosion;
+    private GameObject wavePoints, pixelExplosion, shooterPs, ex2;
 
 	[SerializeField]
 	private float movementSpeed = 70f;
@@ -123,6 +123,8 @@ public class Shooter : MonoBehaviour, IEnemy
             Instantiate(wavePoints, spawnPos, Quaternion.identity);
         }
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(ex2, transform.position, Quaternion.identity);
+        Instantiate(shooterPs, transform.position, Quaternion.identity);
         gameManager.enemiesAlive--;
         Destroy(gameObject);
     }

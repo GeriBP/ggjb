@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour {
     public cameraShake cShake;
     public gameManager GM;
     public Rigidbody2D myRb;
-    public GameObject reconnectScreen, explosion;
+    public GameObject reconnectScreen, explosion, pickUpExp;
     public shockWave wave;
     private bool waveAvailable = true;
     private bool deathBool = false;
@@ -75,11 +75,6 @@ public class playerMove : MonoBehaviour {
                 GM.waveBar.value = 0;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            soundEmitter.SetParameter("Prueba_1", 2f);
-        }
     }
 
     void FixedUpdate()
@@ -106,7 +101,7 @@ public class playerMove : MonoBehaviour {
         if (other.tag == "PickUp")
         {
             GM.addWave(pickUpPoints);
-            //Instantiate enemy death anim
+            Instantiate(pickUpExp, other.gameObject.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
     }

@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 public class Drone : MonoBehaviour, IEnemy 
 {
 	[SerializeField]
-    private GameObject wavePoints, pixelExplosion;
+    private GameObject wavePoints, pixelExplosion, dronePs, ex2;
 
 	[SerializeField]
 	private float movementSpeed = 3f;
@@ -58,6 +58,8 @@ public class Drone : MonoBehaviour, IEnemy
             Instantiate(wavePoints, spawnPos, Quaternion.identity);
         }
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(ex2, transform.position, Quaternion.identity);
+        Instantiate(dronePs, transform.position, Quaternion.identity);
         gameManager.enemiesAlive--;
         Destroy(gameObject);
     }

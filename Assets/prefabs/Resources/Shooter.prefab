@@ -145,6 +145,8 @@ MonoBehaviour:
   wavePoints: {fileID: 1697222919952702, guid: a849457ce7e35f84ea51083440a611c9, type: 2}
   pixelExplosion: {fileID: 1511817286848110, guid: d7e57b4cb7e9e4b4ea326b14960d1cf3,
     type: 2}
+  shooterPs: {fileID: 1997705508156116, guid: 31c95cca9efd0724cb4523513ee8b42d, type: 2}
+  ex2: {fileID: 1574520607669376, guid: 877db1aa98d4c0047ad5fd6336739e66, type: 2}
   movementSpeed: 4
   maxShootDistance: 6
   timeBetweenShots: 0.6

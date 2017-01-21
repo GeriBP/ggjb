@@ -11,7 +11,7 @@ using UnityEngine.Assertions;
 public class Kamikaze : MonoBehaviour, IEnemy
 {
 	[SerializeField]
-    private GameObject wavePoints, pixelExplosion;
+    private GameObject wavePoints, pixelExplosion, ex2, shooterPs;
 	
 	[SerializeField]
 	private float movementSpeed = 3f;
@@ -69,6 +69,8 @@ public class Kamikaze : MonoBehaviour, IEnemy
             Instantiate(wavePoints, spawnPos, Quaternion.identity);
         }
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(ex2, transform.position, Quaternion.identity);
+        Instantiate(shooterPs, transform.position, Quaternion.identity);
         gameManager.enemiesAlive--;
         Destroy(gameObject);
     }
