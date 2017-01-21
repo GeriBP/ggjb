@@ -9,10 +9,18 @@ public class gameManager : MonoBehaviour {
     public Slider waveBar;
     public Text waveValue;
     public GameObject wave1;
-	// Use this for initialization
-	void Start () {
+    //spawn stuff
+    public GameObject[] waves;
+    public int[] nEnemies;
+    private int currentWave = 0;
+    public static int enemiesAlive;
+    // Use this for initialization
+    void Start () {
         time = 0;
-        StartCoroutine("clockTick");
+        //StartCoroutine("clockTick");
+        enemiesAlive = nEnemies[0];
+        Instantiate(waves[0], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        StartCoroutine("spawner");
     }
 	
 	// Update is called once per frame
@@ -47,5 +55,23 @@ public class gameManager : MonoBehaviour {
     public void reconnect()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator spawner()
+    {
+        if (enemiesAlive <= 0)
+        {
+            currentWave++;
+            if (waves.Length > currentWave) {
+                enemiesAlive = nEnemies[currentWave];
+                Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            }
+            else //end game
+            {
+
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine("spawner");
     }
 }
