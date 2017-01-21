@@ -46,6 +46,6 @@ public class gameManager : MonoBehaviour {
 
     public void reconnect()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene.name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

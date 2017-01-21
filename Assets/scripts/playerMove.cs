@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour {
     public cameraShake cShake;
     public gameManager GM;
     private Rigidbody2D myRb;
-    public GameObject wave;
+    public GameObject wave, reconnectScreen;
     private bool waveAvailable = true;
 
     private StudioEventEmitter soundEmitter;
@@ -87,6 +87,8 @@ public class playerMove : MonoBehaviour {
     {   
         // Die after 1 hit.
         Debug.Log("Game over");
+        reconnectScreen.SetActive(true);
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -110,7 +112,7 @@ public class playerMove : MonoBehaviour {
     IEnumerator shootWave(float proportion) //16.6f proportioon is max
     {
         GameObject w = Instantiate(wave, transform.position, Quaternion.identity) as GameObject;
-        for (int i = 0; i < 200; ++i)
+        for (int i = 0; i < 50; ++i)
         {
             w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smooth * Time.deltaTime);
             yield return new WaitForSeconds(0.01f);
