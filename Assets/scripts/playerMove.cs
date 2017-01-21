@@ -119,7 +119,7 @@ public class playerMove : MonoBehaviour {
             w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smooth * Time.deltaTime);
             yield return new WaitForSeconds(0.01f);
         }
-        Destroy(w);
+        Destroy(w.gameObject);
     }
 
     IEnumerator waveCooldown()
