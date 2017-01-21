@@ -96,7 +96,7 @@ public class playerMove : MonoBehaviour {
 
     public void TakeHit()
     {
-        StartCoroutine("death");
+        if(!deathBool) StartCoroutine("death");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -141,7 +141,12 @@ public class playerMove : MonoBehaviour {
         gameObject.GetComponent<TrailRenderer>().enabled = false;
         if(!deathBool) Instantiate(explosion, transform.position, Quaternion.identity);
         deathBool = true;
-        reconnectScreen.SetActive(true);
+        StartCoroutine("screenDeath");
         yield return null;
+    }
+    IEnumerator screenDeath()
+    {
+        yield return new WaitForSeconds(2.0f);
+        reconnectScreen.SetActive(true);
     }
 }

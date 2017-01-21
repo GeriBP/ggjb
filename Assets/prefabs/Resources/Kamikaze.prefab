@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 61188320589560844}
   m_Layer: 13
   m_Name: Kamikaze
-  m_TagString: Untagged
+  m_TagString: Risk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
