@@ -129,6 +129,7 @@ public class Boss : MonoBehaviour, IEnemy
                             .Do("Rotate", t => 
                             {
                                 var time = Mathf.Clamp01((Time.time - (windupStartTime + fireWindupDuration)) / fireDuration);
+                                time = 1f + Mathf.Sin((1.5f * Mathf.PI) + time * Mathf.PI * 0.5f);
                                 transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 360f, time));
                                 return BehaviourTreeStatus.Success;
                             })
