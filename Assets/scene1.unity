@@ -384,7 +384,7 @@ Prefab:
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
       propertyPath: nEnemies.Array.data[0]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
@@ -405,7 +405,7 @@ Prefab:
         type: 2}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 1313499887950018, guid: f02c96d34345389449607f0022533e65,
+      objectReference: {fileID: 1092734949030680, guid: ad0b58f40edf9466da8792147a15756b,
         type: 2}
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
