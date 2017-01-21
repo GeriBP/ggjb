@@ -9,17 +9,17 @@ public class gameManager : MonoBehaviour {
     public Slider waveBar;
     public Text waveValue;
     public GameObject wave1;
-    //spawn stuff
     public GameObject[] waves;
     public int[] nEnemies;
     private int currentWave = 0;
     public static int enemiesAlive;
+    private GameObject currentGo;
     // Use this for initialization
     void Start () {
         time = 0;
         //StartCoroutine("clockTick");
         enemiesAlive = nEnemies[currentWave];
-        Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        currentGo = Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         StartCoroutine("spawner");
     }
 	
@@ -54,7 +54,11 @@ public class gameManager : MonoBehaviour {
 
     public void reconnect()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Destroy(currentGo);
+        if (currentWave > 0) --currentWave;
+        enemiesAlive = nEnemies[currentWave];
+        Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
     }
 
     IEnumerator spawner()

@@ -44,6 +44,11 @@ public class playerMove : MonoBehaviour {
         {
             myRb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
+        if (Input.GetKey(KeyCode.R) && deathBool) //Reset
+        {
+            GM.reconnect();
+            reconnectScreen.SetActive(false);
+        }
         if (Input.GetKeyUp(KeyCode.Space) && waveAvailable && !deathBool) //ShockWave
         {
             StartCoroutine("waveCooldown");

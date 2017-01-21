@@ -16,7 +16,8 @@ public class wormHole : MonoBehaviour {
     IEnumerator spawner()
     {
         yield return new WaitForSeconds(2.0f);
-        Instantiate(enemy, transform.position, Quaternion.identity);
+        GameObject enemyInst = Instantiate(enemy, transform.position, Quaternion.identity);
+       // enemyInst.transform.parent = transform;
         Destroy(gameObject);
     }
 }
