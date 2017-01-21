@@ -38,12 +38,13 @@ public class TypewriterText : MonoBehaviour
 	void Awake()
 	{
 		uiText = GetComponent<Text>();
-		uiText.text = string.Empty;
 	}
 
-	void Start()
+	void OnEnable()
 	{
 		currentCharacterDelay = fastCharacterDelay;
+		uiText.text = string.Empty;
+		currentCharIndex = 0;
 	}
 
 	void Update()
