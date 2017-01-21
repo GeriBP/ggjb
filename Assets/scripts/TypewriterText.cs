@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
@@ -114,6 +115,9 @@ public class TypewriterText : MonoBehaviour
 
 	private void BeginGame()
 	{
-		
+		var gameStarter = FindObjectOfType<GameStarter>();
+		Assert.IsNotNull(gameStarter);
+
+		gameStarter.BeginGame();
 	}
 }
