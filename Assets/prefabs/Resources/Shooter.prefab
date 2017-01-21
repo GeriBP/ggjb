@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50513752540727934}
   - component: {fileID: 61711099924618010}
   - component: {fileID: 114547188756748558}
+  - component: {fileID: 61179722288778246}
   m_Layer: 14
   m_Name: Shooter
   m_TagString: Untagged
@@ -102,6 +103,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61179722288778246
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303070484157848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!61 &61711099924618010
 BoxCollider2D:
   m_ObjectHideFlags: 1

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50981797526366502}
   - component: {fileID: 61602966499274366}
   - component: {fileID: 114224451523521418}
+  - component: {fileID: 61188320589560844}
   m_Layer: 13
   m_Name: Kamikaze
   m_TagString: Untagged
@@ -102,6 +103,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61188320589560844
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613140923622430}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!61 &61602966499274366
 BoxCollider2D:
   m_ObjectHideFlags: 1
