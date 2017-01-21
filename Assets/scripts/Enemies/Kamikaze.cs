@@ -69,6 +69,7 @@ public class Kamikaze : MonoBehaviour, IEnemy
             Instantiate(wavePoints, spawnPos, Quaternion.identity);
         }
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        gameManager.enemiesAlive--;
         Destroy(gameObject);
     }
 }

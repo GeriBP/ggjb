@@ -5,13 +5,14 @@ using FMODUnity;
 using UnityEngine.Assertions;
 
 public class playerMove : MonoBehaviour {
-    public float speed, smooth, pickUpPoints, maxScale;
+    public float speed, smooth, pickUpPoints, riskPoints, speedPoints, maxScale, speedThreshhold, smoothWave;
     public cameraShake cShake;
     public gameManager GM;
-    private Rigidbody2D myRb;
+    public Rigidbody2D myRb;
     public GameObject reconnectScreen, explosion;
     public shockWave wave;
     private bool waveAvailable = true;
+    private bool deathBool = false;
 
     private StudioEventEmitter soundEmitter;
 
@@ -27,23 +28,23 @@ public class playerMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.W)) //UP
+        if (Input.GetKey(KeyCode.W) && !deathBool) //UP
         {
             myRb.AddForce(Vector2.up * speed, ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.S)) //DOWN
+        if (Input.GetKey(KeyCode.S) && !deathBool) //DOWN
         {
             myRb.AddForce(Vector2.down * speed, ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.A)) //LEFT
+        if (Input.GetKey(KeyCode.A) && !deathBool) //LEFT
         {
             myRb.AddForce(Vector2.left * speed, ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.D)) //RIGHT
+        if (Input.GetKey(KeyCode.D) && !deathBool) //RIGHT
         {
             myRb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (Input.GetKeyUp(KeyCode.Space) && waveAvailable) //ShockWave
+        if (Input.GetKeyUp(KeyCode.Space) && waveAvailable && !deathBool) //ShockWave
         {
             StartCoroutine("waveCooldown");
             float meter = GM.waveBar.value;
@@ -78,9 +79,9 @@ public class playerMove : MonoBehaviour {
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), smooth);
         }
-        if (myRb.velocity.magnitude > 3)
+        if (myRb.velocity.magnitude > speedThreshhold)
         {
-            GM.addWave(0.01f);
+            GM.addWave(speedPoints);
         }
     }
 
@@ -103,7 +104,7 @@ public class playerMove : MonoBehaviour {
     {
         if (other.tag == "Risk" && myRb.velocity.magnitude > 3)
         {
-            GM.addWave(5.0f);
+            GM.addWave(riskPoints);
         }
     }
 
@@ -113,7 +114,7 @@ public class playerMove : MonoBehaviour {
         w.Damage = proportion;
         for (int i = 0; i < 50; ++i)
         {
-            w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smooth * Time.deltaTime);
+            w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smoothWave * Time.deltaTime);
             yield return new WaitForSeconds(0.01f);
         }
         Destroy(w.gameObject);
@@ -127,8 +128,10 @@ public class playerMove : MonoBehaviour {
     }
     IEnumerator death()
     {
-        GetComponent<SpriteRenderer>().sprite = null;
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<TrailRenderer>().enabled = false;
+        if(!deathBool) Instantiate(explosion, transform.position, Quaternion.identity);
+        deathBool = true;
         yield return new WaitForSeconds(2.0f);
         reconnectScreen.SetActive(true);
     }
