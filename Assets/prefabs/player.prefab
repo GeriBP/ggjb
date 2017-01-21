@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401695259562210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.115, y: 0.135, z: 0}
-  m_LocalScale: {x: 0.2025106, y: 0.2025106, z: 0.2025106}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.28179574, y: 0.28179574, z: 0.28179574}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,9 +77,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.042087507}
+  m_Offset: {x: -0.044233322, y: 0.04208748}
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 4.1940656}
+  m_Size: {x: 4.8546014, y: 2.8670669}
 --- !u!96 &96730268978374374
 TrailRenderer:
   serializedVersion: 2
@@ -243,6 +243,7 @@ MonoBehaviour:
   reconnectScreen: {fileID: 0}
   explosion: {fileID: 1421413779020934, guid: 4ed5e67b9ce4afe40a63bf8e34f60245, type: 2}
   wave: {fileID: 114026853890443544, guid: 6dd3e933ada75c747a42ed7fc5544c0c, type: 2}
+  buttonBool: 0
 --- !u!114 &114955063609366310
 MonoBehaviour:
   m_ObjectHideFlags: 1

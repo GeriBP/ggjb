@@ -13,6 +13,7 @@ public class playerMove : MonoBehaviour {
     public shockWave wave;
     private bool waveAvailable = true;
     private bool deathBool = false;
+    public bool buttonBool = false;
 
     private StudioEventEmitter soundEmitter;
 
@@ -44,7 +45,7 @@ public class playerMove : MonoBehaviour {
         {
             myRb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (Input.GetKeyUp(KeyCode.R) && deathBool) //Reset
+        if (Input.GetKeyUp(KeyCode.R) && deathBool && buttonBool) //Reset
         {
             deathBool = false;
             transform.position = new Vector3(0.0f, 0.0f, 0.0f);
@@ -52,6 +53,7 @@ public class playerMove : MonoBehaviour {
             GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<TrailRenderer>().enabled = true;
             reconnectScreen.SetActive(false);
+            buttonBool = false;
         }
         if (Input.GetKeyUp(KeyCode.Space) && waveAvailable && !deathBool) //ShockWave
         {
@@ -148,13 +150,17 @@ public class playerMove : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.0f);
         reconnectScreen.SetActive(true);
+        buttonBool = true;
     }
     public void revive()
     {
-        deathBool = false;
-        transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-        GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.GetComponent<TrailRenderer>().enabled = true;
-        reconnectScreen.SetActive(false);
+        if (buttonBool) {
+            deathBool = false;
+            transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+            GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
+            reconnectScreen.SetActive(false);
+            buttonBool = false;
+        }
     }
 }
