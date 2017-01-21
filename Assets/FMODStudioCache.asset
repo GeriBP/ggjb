@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114313232018928302}
-  - {fileID: 114156716984071678}
+  - {fileID: 114936878747374542}
   EditorEvents:
   - {fileID: 114566964823369892}
-  MasterBankRef: {fileID: 114156716984071678}
+  MasterBankRef: {fileID: 114936878747374542}
   StringsBankRef: {fileID: 114313232018928302}
-  stringsBankWriteTime: 636205965880000000
+  stringsBankWriteTime: 636205974915267913
   cacheVersion: 2
 --- !u!114 &114128266980264582
 MonoBehaviour:
@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Audio/Desktop/Master Bank.strings.bank
-  lastModified: 636205965880000000
+  Path: Assets/Audio\Desktop\Master Bank.strings.bank
+  lastModified: 636205974915267913
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -118,12 +118,12 @@ MonoBehaviour:
   Path: event:/Event1
   guid: 99d30d77f02b714ea9c1c0e8dc6cf8b7
   Banks:
-  - {fileID: 114156716984071678}
+  - {fileID: 114936878747374542}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114377914215849784}
+  - {fileID: 114795004064990622}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114577643849967328
@@ -166,3 +166,36 @@ MonoBehaviour:
   - {fileID: 114128266980264582}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114795004064990622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Prueba_1
+  Min: 0
+  Max: 2
+  Default: 0
+--- !u!114 &114936878747374542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\gbele\Desktop\global game jam\Assets\Audio\Desktop\Master Bank.bank
+  lastModified: 636205974915152818
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 520992
+  Exists: 1

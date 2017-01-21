@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
     public int time;
@@ -41,5 +42,10 @@ public class gameManager : MonoBehaviour {
         actual += n;
         if (actual > 100) actual = 100;
         waveBar.value = actual;
+    }
+
+    public void reconnect()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene.name);
     }
 }
