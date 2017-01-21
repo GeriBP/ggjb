@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50800935963244160}
   - component: {fileID: 114027108922610214}
   - component: {fileID: 58278125548180196}
+  - component: {fileID: 114373091542809818}
   m_Layer: 15
   m_Name: 3d-green-ball-hi
   m_TagString: PickUp
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 0.2
   maxSpeed: 10
+--- !u!114 &114373091542809818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1697222919952702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e63ecd677800494cb69b0bcdb663001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
 --- !u!198 &198224995899760708
 ParticleSystem:
   m_ObjectHideFlags: 1
