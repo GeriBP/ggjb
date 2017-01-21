@@ -16,7 +16,6 @@ public class shockWave : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("wave IMP " + other.name);
         IEnemy ie = other.gameObject.GetComponent<IEnemy>();
         if (ie != null)
         {

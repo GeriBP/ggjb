@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6d0c8c09d9e3e384d8ea7de6a1b5b6cb
+timeCreated: 1484996996
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Paskowy
+  fontNames:
+  - Paskowy
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

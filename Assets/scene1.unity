@@ -460,12 +460,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: f1db8eb606b2bef4ea49eeb44b5c0d33, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 106
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 1346392959}
   - component: {fileID: 1346392964}
   - component: {fileID: 1346392965}
+  - component: {fileID: 1346392966}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -596,6 +597,19 @@ MonoBehaviour:
   waveBar: {fileID: 1682415778}
   waveValue: {fileID: 1313011804}
   wave1: {fileID: 1423954514096370, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
+--- !u!114 &1346392966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1346392958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb3550bae7711b42b6e87e2be3361ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake_decay: 0
+  shake_intensity: 0
 --- !u!1 &1655636657
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +645,7 @@ MonoBehaviour:
   smooth: 0.1
   pickUpPoints: 1
   maxScale: 8
+  cShake: {fileID: 1346392966}
   GM: {fileID: 1346392965}
   wave: {fileID: 1673211096957806, guid: 9dd5d5e762fb2da4eb30ca8491d9d8fb, type: 2}
 --- !u!50 &1655636659

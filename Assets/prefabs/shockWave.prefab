@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4313136007058394}
   - component: {fileID: 212927437141492174}
   - component: {fileID: 61515994961511272}
+  - component: {fileID: 114676530601945984}
   m_Layer: 0
-  m_Name: wave
-  m_TagString: shockwave
+  m_Name: shockWave
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +56,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 6, y: 4.45}
+--- !u!114 &114676530601945984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673211096957806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e803fef930b004197a16e52e9a8d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212927437141492174
 SpriteRenderer:
   m_ObjectHideFlags: 1

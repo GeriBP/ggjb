@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour {
     public float speed, smooth, pickUpPoints, maxScale;
+    public cameraShake cShake;
     public gameManager GM;
     private Rigidbody2D myRb;
     public GameObject wave;
@@ -39,12 +40,14 @@ public class playerMove : MonoBehaviour {
             {
                 //SPECIAL WAVE
                 float proportion = meter / 100.0f;
+                cShake.Shake(proportion);
                 StartCoroutine("shootWave", proportion);
                 GM.waveBar.value = 0;
             }
-            else if(meter >= 10.0f) //10.0f is the minumum waveMeter you can spend
+            else if(meter >= 1.0f) //10.0f is the minumum waveMeter you can spend
             {
                 float proportion = meter / 100.0f;
+                cShake.Shake(proportion);
                 StartCoroutine("shootWave", proportion);
                 GM.waveBar.value = 0;
             }
