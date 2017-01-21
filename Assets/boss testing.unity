@@ -169,7 +169,12 @@ Prefab:
     - target: {fileID: 114596429711489218, guid: ad0b58f40edf9466da8792147a15756b,
         type: 2}
       propertyPath: timeBetweenEachShot
-      value: 0.3
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114596429711489218, guid: ad0b58f40edf9466da8792147a15756b,
+        type: 2}
+      propertyPath: fireDuration
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad0b58f40edf9466da8792147a15756b, type: 2}
@@ -456,6 +461,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1231556671105674, guid: c21f3bc185526134f95bec6c3e80e3ba,
         type: 2}
+    - target: {fileID: 114846430453568570, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bcd4b84160c64d3dbf2be2170819a7c, type: 2}
   m_IsPrefabParent: 0
@@ -625,6 +635,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114687809096654586, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
+        type: 2}
+      propertyPath: m_HandleRect
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114725311894883046, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -639,10 +654,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917187077401258, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}

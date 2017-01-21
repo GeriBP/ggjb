@@ -59,6 +59,8 @@ public class Boss : MonoBehaviour, IEnemy
 
     private new Rigidbody2D rigidbody;
 
+    private BossHealthUI ui;
+
     private IBehaviourTreeNode behaviour;
 
     private GameObject shield;
@@ -89,6 +91,9 @@ public class Boss : MonoBehaviour, IEnemy
         shield = shieldTransform.gameObject;
 
         Assert.IsNotNull(projectilePrefab);
+
+        ui = FindObjectOfType<BossHealthUI>();
+        Assert.IsNotNull(ui);
     }
 
     void Start()
@@ -96,6 +101,10 @@ public class Boss : MonoBehaviour, IEnemy
         currentHP = startingHP;
 
         Reset(new TimeData(Time.deltaTime));
+
+        // Show health UI
+        ui.SetHealthBarVisible(true);
+        ui.SetHealthBarValue(1f);
 
         behaviour = new BehaviourTreeBuilder()
             .Sequence("Main behaviour")
@@ -233,5 +242,7 @@ public class Boss : MonoBehaviour, IEnemy
     public void TakeHit(float damage)
     {
         currentHP -= damage;
+
+        ui.SetHealthBarValue(Mathf.Max(0f, currentHP / startingHP));
     }
 }
