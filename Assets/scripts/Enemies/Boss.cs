@@ -80,6 +80,7 @@ public class Boss : MonoBehaviour, IEnemy
     private int initialNumberOfEnemies;
     private bool startedEndSegment = false;
     private float finalSectionStartTime;
+    private float targetRotation = 720f;
     #endregion
 
     void Awake()
@@ -149,7 +150,7 @@ public class Boss : MonoBehaviour, IEnemy
                             {
                                 var time = Mathf.Clamp01((Time.time - (windupStartTime + fireWindupDuration)) / fireDuration);
                                 time = 1f + Mathf.Sin((1.5f * Mathf.PI) + time * Mathf.PI * 0.5f);
-                                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 720f, time));
+                                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, targetRotation, time));
                                 return BehaviourTreeStatus.Running;
                             })
                         .End()
@@ -237,6 +238,7 @@ public class Boss : MonoBehaviour, IEnemy
         nextAttack = 0;
         initialNumberOfEnemies = gameManager.enemiesAlive;
         startedEndSegment = false;
+        targetRotation *= -1f;
 
         return BehaviourTreeStatus.Success;
     }
