@@ -11,7 +11,7 @@ using UnityEngine.Assertions;
 public class Kamikaze : MonoBehaviour, IEnemy
 {
 	[SerializeField]
-	private float movementSpeed = 70f;
+	private float movementSpeed = 3f;
 
 	private new Rigidbody2D rigidbody;
 
@@ -38,7 +38,7 @@ public class Kamikaze : MonoBehaviour, IEnemy
 	void FixedUpdate () 
 	{
 		var toPlayer = (target.position - transform.position).normalized;
-		var newVelocity = toPlayer * movementSpeed * Time.fixedDeltaTime;
+		var newVelocity = toPlayer * movementSpeed;
 		rigidbody.velocity = newVelocity;
 	}
 
