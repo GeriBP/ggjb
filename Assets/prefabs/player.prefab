@@ -235,7 +235,7 @@ MonoBehaviour:
   riskPoints: 5
   speedPoints: 1
   maxScale: 1
-  speedThreshhold: 10
+  speedThreshhold: 8
   smoothWave: 2
   cShake: {fileID: 0}
   GM: {fileID: 0}
