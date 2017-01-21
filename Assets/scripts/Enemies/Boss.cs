@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 public class Boss : MonoBehaviour, IEnemy
 {
     [SerializeField]
-    private float startingHP = 1000f;
+    private float startingHP = 4f;
 
     [SerializeField]
     private GameObject minionPrefab;
@@ -59,13 +59,14 @@ public class Boss : MonoBehaviour, IEnemy
 
     private new Rigidbody2D rigidbody;
 
+    private BossHealthUI ui;
+
     private IBehaviourTreeNode behaviour;
 
     private GameObject shield;
 
     #region state management
     private bool alreadySpawnedMinions = false;
-    private IList<GameObject> activeMinions = new List<GameObject>();
     private float timeAttackStarted;
     private int numberOfAttacksCompleted = 0;
     private int numberOfAttacksWoundUp = 0;
@@ -90,11 +91,20 @@ public class Boss : MonoBehaviour, IEnemy
         shield = shieldTransform.gameObject;
 
         Assert.IsNotNull(projectilePrefab);
+
+        ui = FindObjectOfType<BossHealthUI>();
+        Assert.IsNotNull(ui);
     }
 
     void Start()
     {
         currentHP = startingHP;
+
+        Reset(new TimeData(Time.deltaTime));
+
+        // Show health UI
+        ui.SetHealthBarVisible(true);
+        ui.SetHealthBarValue(1f);
 
         behaviour = new BehaviourTreeBuilder()
             .Sequence("Main behaviour")
@@ -135,8 +145,8 @@ public class Boss : MonoBehaviour, IEnemy
                             {
                                 var time = Mathf.Clamp01((Time.time - (windupStartTime + fireWindupDuration)) / fireDuration);
                                 time = 1f + Mathf.Sin((1.5f * Mathf.PI) + time * Mathf.PI * 0.5f);
-                                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 360f, time));
-                                return BehaviourTreeStatus.Success;
+                                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 720f, time));
+                                return BehaviourTreeStatus.Running;
                             })
                         .End()
                     .End()
@@ -147,7 +157,7 @@ public class Boss : MonoBehaviour, IEnemy
                         .Do("Start ending", t => 
                         { 
                             startedEndSegment = true;
-                            finalSectionStartTime = 0f;
+                            finalSectionStartTime = Time.time;
 
                             return BehaviourTreeStatus.Success;
                         })
@@ -169,10 +179,10 @@ public class Boss : MonoBehaviour, IEnemy
     {
         foreach (var spawnPoint in GetComponentsInChildren<Transform>())
         {
-            Debug.Log(spawnPoint.name);
             if (spawnPoint.name == "SpawnPoint")
             {
-                activeMinions.Add(Instantiate(minionPrefab, spawnPoint.transform.position, Quaternion.identity));
+                Instantiate(minionPrefab, spawnPoint.transform.position, Quaternion.identity);
+                gameManager.enemiesAlive++;
             }
         }
         alreadySpawnedMinions = true;
@@ -197,8 +207,6 @@ public class Boss : MonoBehaviour, IEnemy
 
 	private BehaviourTreeStatus Fire(TimeData t)
 	{
-        Debug.Log("Firing");
-        
 		SpawnProjectile(transform.rotation * new Vector2(0, 1));
 		SpawnProjectile(transform.rotation * new Vector2(-1, 0));
 		SpawnProjectile(transform.rotation * new Vector2(1, 0));
@@ -210,7 +218,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     private void SpawnProjectile(Vector2 direction)
     {   
-        var projectile = Instantiate(projectilePrefab, (Vector2)transform.position + direction, Quaternion.identity);
+        var projectile = Instantiate(projectilePrefab, (Vector2)transform.position + direction * 2f, Quaternion.identity);
 		projectile.MovementSpeed = projectileSpeed;
         projectile.Direction = direction;
     }
@@ -219,7 +227,6 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Boss resetting");
         alreadySpawnedMinions = false;
-        activeMinions.Clear();
         numberOfAttacksCompleted = 0;
         numberOfAttacksWoundUp = 0;
         currentAttack = -1;
@@ -233,5 +240,8 @@ public class Boss : MonoBehaviour, IEnemy
     public void TakeHit(float damage)
     {
         currentHP -= damage;
+        Debug.Log("Taking " + damage + " HP of damage. Remaining HP " + currentHP);
+
+        ui.SetHealthBarValue(Mathf.Max(0f, currentHP / startingHP));
     }
 }
