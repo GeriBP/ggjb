@@ -17,6 +17,9 @@ public class Boss : MonoBehaviour, IEnemy
     [SerializeField]
     private GameObject minionPrefab;
 
+    [SerializeField]
+    private GameObject pixelExplosion;
+
 	/// <summary>
 	/// Prefab to spawn for the projectile
 	/// </summary>
@@ -91,6 +94,7 @@ public class Boss : MonoBehaviour, IEnemy
         shield = shieldTransform.gameObject;
 
         Assert.IsNotNull(projectilePrefab);
+        Assert.IsNotNull(pixelExplosion);
 
         ui = FindObjectOfType<BossHealthUI>();
         Assert.IsNotNull(ui);
@@ -239,9 +243,20 @@ public class Boss : MonoBehaviour, IEnemy
 
     public void TakeHit(float damage)
     {
+        if (shieldActive)
+        {
+            return;
+        }
+
         currentHP -= damage;
         Debug.Log("Taking " + damage + " HP of damage. Remaining HP " + currentHP);
 
         ui.SetHealthBarValue(Mathf.Max(0f, currentHP / startingHP));
+
+        if (currentHP <= 0f)
+        {
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

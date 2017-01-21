@@ -645,8 +645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1099599542f4c38bc125702f2e7725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 4
+  startingHP: 2
   minionPrefab: {fileID: 1157614461832246, guid: b91e12f0041f23a46b196ce698772538,
+    type: 2}
+  pixelExplosion: {fileID: 1511817286848110, guid: d7e57b4cb7e9e4b4ea326b14960d1cf3,
     type: 2}
   projectilePrefab: {fileID: 114860381009842476, guid: 2cdb6612e181444e4a68f9a72bd3053c,
     type: 2}
