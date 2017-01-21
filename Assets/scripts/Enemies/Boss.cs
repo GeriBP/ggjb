@@ -65,7 +65,6 @@ public class Boss : MonoBehaviour, IEnemy
 
     #region state management
     private bool alreadySpawnedMinions = false;
-    private IList<GameObject> activeMinions = new List<GameObject>();
     private float timeAttackStarted;
     private int numberOfAttacksCompleted = 0;
     private int numberOfAttacksWoundUp = 0;
@@ -95,6 +94,8 @@ public class Boss : MonoBehaviour, IEnemy
     void Start()
     {
         currentHP = startingHP;
+
+        Reset(new TimeData(Time.deltaTime));
 
         behaviour = new BehaviourTreeBuilder()
             .Sequence("Main behaviour")
@@ -147,7 +148,7 @@ public class Boss : MonoBehaviour, IEnemy
                         .Do("Start ending", t => 
                         { 
                             startedEndSegment = true;
-                            finalSectionStartTime = 0f;
+                            finalSectionStartTime = Time.time;
 
                             return BehaviourTreeStatus.Success;
                         })
@@ -169,10 +170,10 @@ public class Boss : MonoBehaviour, IEnemy
     {
         foreach (var spawnPoint in GetComponentsInChildren<Transform>())
         {
-            Debug.Log(spawnPoint.name);
             if (spawnPoint.name == "SpawnPoint")
             {
-                activeMinions.Add(Instantiate(minionPrefab, spawnPoint.transform.position, Quaternion.identity));
+                Instantiate(minionPrefab, spawnPoint.transform.position, Quaternion.identity);
+                gameManager.enemiesAlive++;
             }
         }
         alreadySpawnedMinions = true;
@@ -219,7 +220,6 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Boss resetting");
         alreadySpawnedMinions = false;
-        activeMinions.Clear();
         numberOfAttacksCompleted = 0;
         numberOfAttacksWoundUp = 0;
         currentAttack = -1;
