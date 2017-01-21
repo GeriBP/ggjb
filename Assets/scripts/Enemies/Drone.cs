@@ -11,10 +11,15 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Drone : MonoBehaviour, IEnemy 
 {
+<<<<<<< HEAD
     public GameObject wavePoints;
 
     [SerializeField]
 	private float movementSpeed = 1f;
+=======
+	[SerializeField]
+	private float movementSpeed = 200f;
+>>>>>>> 46bf323d35400e1ba4fe8af15ede49592d2c46ef
 
 	private Vector2 currentMovementDirection;
 
@@ -57,6 +62,7 @@ public class Drone : MonoBehaviour, IEnemy
 
     public void TakeHit()
     {
+		// TODO: play animation and destroy self
         throw new NotImplementedException();
     }
 }
