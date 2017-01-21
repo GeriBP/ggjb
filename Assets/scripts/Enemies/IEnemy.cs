@@ -7,5 +7,5 @@ using UnityEngine;
 /// </summary>
 public interface IEnemy 
 {
-	void TakeHit();
+	void TakeHit(float damage);
 }

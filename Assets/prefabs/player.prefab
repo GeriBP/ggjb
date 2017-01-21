@@ -235,7 +235,7 @@ MonoBehaviour:
   maxScale: 8
   cShake: {fileID: 0}
   GM: {fileID: 0}
-  wave: {fileID: 1673211096957806, guid: 9dd5d5e762fb2da4eb30ca8491d9d8fb, type: 2}
+  wave: {fileID: 114676530601945984, guid: 9dd5d5e762fb2da4eb30ca8491d9d8fb, type: 2}
 --- !u!114 &114955063609366310
 MonoBehaviour:
   m_ObjectHideFlags: 1

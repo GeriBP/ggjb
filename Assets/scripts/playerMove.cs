@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour {
     public cameraShake cShake;
     public gameManager GM;
     private Rigidbody2D myRb;
-    public GameObject wave;
+    public shockWave wave;
     private bool waveAvailable = true;
 
     private StudioEventEmitter soundEmitter;
@@ -109,7 +109,8 @@ public class playerMove : MonoBehaviour {
 
     IEnumerator shootWave(float proportion) //16.6f proportioon is max
     {
-        GameObject w = Instantiate(wave, transform.position, Quaternion.identity) as GameObject;
+        var w = Instantiate(wave, transform.position, Quaternion.identity);
+        w.Damage = proportion;
         for (int i = 0; i < 200; ++i)
         {
             w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smooth * Time.deltaTime);

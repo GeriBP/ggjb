@@ -49,7 +49,7 @@ public class Drone : MonoBehaviour, IEnemy
 		currentMovementDirection = Vector2.Reflect(currentMovementDirection, collision.contacts[0].normal);
 	}
 
-    public void TakeHit()
+    public void TakeHit(float damage)
     {
         for (int i = 0; i < 3; ++i)
         {

@@ -112,7 +112,7 @@ public class Shooter : MonoBehaviour, IEnemy
 			BehaviourTreeStatus.Running;
 	}
 
-    public void TakeHit()
+    public void TakeHit(float damage)
     {
         throw new NotImplementedException();
     }

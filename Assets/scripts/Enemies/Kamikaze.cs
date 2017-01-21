@@ -58,7 +58,7 @@ public class Kamikaze : MonoBehaviour, IEnemy
 		Destroy(gameObject);
 	}
 
-    public void TakeHit()
+    public void TakeHit(float damage)
     {
 		// TODO: play animation and destroy self
         throw new NotImplementedException();
