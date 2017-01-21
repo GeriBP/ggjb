@@ -83,17 +83,20 @@ public class TypewriterText : MonoBehaviour
 				currentChar = text[currentCharIndex];
 				switch (currentChar)
 				{
-					case 's':
+					case 's': // s = slow
 						currentCharacterDelay = slowCharacterDelay;
 						break;
-					case 'f':
+					case 'f': // f = fast
 						currentCharacterDelay = fastCharacterDelay;
 						break;
-					case 'e':
+					case 'e': // e = prompt (was Enter, now any key)
 						waitingForKeyPress = true;
 						oldText = uiText.text;
 						break;
-					case '\\':
+					case 'b': // b = begin!
+						BeginGame();
+						break;
+					case '\\': // actually insert a backslash
 						currentCharIndex--;
 						break;
 					default: break;
@@ -107,5 +110,10 @@ public class TypewriterText : MonoBehaviour
 
 			currentCharIndex++;
 		}
+	}
+
+	private void BeginGame()
+	{
+		
 	}
 }
