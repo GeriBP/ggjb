@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401695259562210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -0.05, z: 0}
-  m_LocalScale: {x: 0.15616548, y: 0.15616548, z: 0.15616548}
+  m_LocalPosition: {x: -0.115, y: 0.135, z: 0}
+  m_LocalScale: {x: 0.2025106, y: 0.2025106, z: 0.2025106}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,9 +77,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.042087507}
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 5.12, y: 4.1940656}
 --- !u!96 &96730268978374374
 TrailRenderer:
   serializedVersion: 2
@@ -112,10 +112,10 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  smooth: 0.1
+  smooth: 3
   pickUpPoints: 2
   riskPoints: 5
   speedPoints: 1
@@ -239,7 +239,7 @@ MonoBehaviour:
   smoothWave: 2
   cShake: {fileID: 0}
   GM: {fileID: 0}
-  myRb: {fileID: 0}
+  myRb: {fileID: 50576203017536978}
   reconnectScreen: {fileID: 0}
   explosion: {fileID: 1421413779020934, guid: 4ed5e67b9ce4afe40a63bf8e34f60245, type: 2}
   wave: {fileID: 114026853890443544, guid: 6dd3e933ada75c747a42ed7fc5544c0c, type: 2}

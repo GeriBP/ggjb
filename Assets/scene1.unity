@@ -509,38 +509,6 @@ Prefab:
       propertyPath: reconnectScreen
       value: 
       objectReference: {fileID: 202755992}
-    - target: {fileID: 4423346492071162, guid: a7c24e2985509494da656fab59d84b76, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.2025106
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423346492071162, guid: a7c24e2985509494da656fab59d84b76, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.2025106
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423346492071162, guid: a7c24e2985509494da656fab59d84b76, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.2025106
-      objectReference: {fileID: 0}
-    - target: {fileID: 61253032717832216, guid: a7c24e2985509494da656fab59d84b76,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.042087507
-      objectReference: {fileID: 0}
-    - target: {fileID: 61253032717832216, guid: a7c24e2985509494da656fab59d84b76,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 4.1940656
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900997492984018, guid: a7c24e2985509494da656fab59d84b76,
-        type: 2}
-      propertyPath: smooth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900997492984018, guid: a7c24e2985509494da656fab59d84b76,
-        type: 2}
-      propertyPath: myRb
-      value: 
-      objectReference: {fileID: 1879561620}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7c24e2985509494da656fab59d84b76, type: 2}
   m_IsPrefabParent: 0
@@ -708,11 +676,6 @@ MonoBehaviour:
 --- !u!1 &1879561619 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1401695259562210, guid: a7c24e2985509494da656fab59d84b76,
-    type: 2}
-  m_PrefabInternal: {fileID: 617121894}
---- !u!50 &1879561620 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50576203017536978, guid: a7c24e2985509494da656fab59d84b76,
     type: 2}
   m_PrefabInternal: {fileID: 617121894}
 --- !u!114 &1879561624 stripped

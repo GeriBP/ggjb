@@ -255,6 +255,7 @@ public class Boss : MonoBehaviour, IEnemy
 
         if (currentHP <= 0f)
         {
+            gameManager.enemiesAlive--;
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
