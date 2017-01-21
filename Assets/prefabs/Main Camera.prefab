@@ -139,7 +139,7 @@ MonoBehaviour:
   time: 0
   waveBar: {fileID: 0}
   waveValue: {fileID: 0}
-  wave1: {fileID: 1423954514096370, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
+  wave1: {fileID: 1496739856975608, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
 --- !u!124 &124864736240046498
 Behaviour:
   m_ObjectHideFlags: 1
