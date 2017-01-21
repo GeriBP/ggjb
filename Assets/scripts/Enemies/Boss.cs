@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 public class Boss : MonoBehaviour, IEnemy
 {
     [SerializeField]
-    private float startingHP = 1000f;
+    private float startingHP = 4f;
 
     [SerializeField]
     private GameObject minionPrefab;
@@ -207,8 +207,6 @@ public class Boss : MonoBehaviour, IEnemy
 
 	private BehaviourTreeStatus Fire(TimeData t)
 	{
-        Debug.Log("Firing");
-        
 		SpawnProjectile(transform.rotation * new Vector2(0, 1));
 		SpawnProjectile(transform.rotation * new Vector2(-1, 0));
 		SpawnProjectile(transform.rotation * new Vector2(1, 0));
@@ -220,7 +218,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     private void SpawnProjectile(Vector2 direction)
     {   
-        var projectile = Instantiate(projectilePrefab, (Vector2)transform.position + direction, Quaternion.identity);
+        var projectile = Instantiate(projectilePrefab, (Vector2)transform.position + direction * 2f, Quaternion.identity);
 		projectile.MovementSpeed = projectileSpeed;
         projectile.Direction = direction;
     }
@@ -242,6 +240,7 @@ public class Boss : MonoBehaviour, IEnemy
     public void TakeHit(float damage)
     {
         currentHP -= damage;
+        Debug.Log("Taking " + damage + " HP of damage. Remaining HP " + currentHP);
 
         ui.SetHealthBarValue(Mathf.Max(0f, currentHP / startingHP));
     }
