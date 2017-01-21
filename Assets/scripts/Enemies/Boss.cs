@@ -44,6 +44,9 @@ public class Boss : MonoBehaviour, IEnemy
 	[SerializeField]
 	private float projectileSpeed = 5f;
 
+    [SerializeField]
+    private float finalCooldownDuration = 3f;
+
     /// <summary>
     /// Can't take damage while the shield is active.
     /// </summary>
@@ -71,6 +74,8 @@ public class Boss : MonoBehaviour, IEnemy
     private float windupStartTime;
     private float timeLastFired;
     private int initialNumberOfEnemies;
+    private bool startedEndSegment = false;
+    private float finalSectionStartTime;
     #endregion
 
     void Awake()
@@ -119,7 +124,7 @@ public class Boss : MonoBehaviour, IEnemy
                         BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
                     .Selector("Fire or wait")
                         .Condition("Timeout", t => Time.time >= windupStartTime + fireWindupDuration + fireDuration)
-                        .Parallel("Fire and rotate", 2, 2)
+                        .Parallel("Fire and rotate", 3, 3)
                             .Sequence("Fire")
                                 .Condition("Time", t => Time.time >= windupStartTime + fireWindupDuration + 1f)
                                 .Do("Wait", t => Time.time >= timeLastFired + timeBetweenEachShot ? 
@@ -136,8 +141,21 @@ public class Boss : MonoBehaviour, IEnemy
                         .End()
                     .End()
                 .End()
-                .Do("debug", t => { Debug.Log("reached end"); return BehaviourTreeStatus.Running; })
-                // wait and reset 
+                .Sequence("Start ending then wait")
+                    .Selector("Start or wait")
+                        .Condition("Already started", t => startedEndSegment)
+                        .Do("Start ending", t => 
+                        { 
+                            startedEndSegment = true;
+                            finalSectionStartTime = 0f;
+
+                            return BehaviourTreeStatus.Success;
+                        })
+                    .End()
+                    .Do("Wait", t => Time.time >= finalSectionStartTime + finalCooldownDuration ? 
+                        BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
+                    .Do("Reset", Reset)
+                .End()
             .End()
             .Build();
     }
@@ -199,6 +217,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     private BehaviourTreeStatus Reset(TimeData t)
     {
+        Debug.Log("Boss resetting");
         alreadySpawnedMinions = false;
         activeMinions.Clear();
         numberOfAttacksCompleted = 0;
@@ -206,6 +225,7 @@ public class Boss : MonoBehaviour, IEnemy
         currentAttack = -1;
         nextAttack = 0;
         initialNumberOfEnemies = gameManager.enemiesAlive;
+        startedEndSegment = false;
 
         return BehaviourTreeStatus.Success;
     }
