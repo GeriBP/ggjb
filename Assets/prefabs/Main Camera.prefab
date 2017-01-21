@@ -55,7 +55,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.058823533, g: 0.16470589, b: 0.324, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -64,7 +64,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 88
   orthographic: 0
   orthographic size: 5.08
   m_Depth: -1
@@ -126,6 +126,8 @@ MonoBehaviour:
   target: {fileID: 0}
   pM: {fileID: 0}
   smooth: 0.1
+  smoothIn: 0.1
+  smoothOut: 0.05
 --- !u!114 &114982725906276534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +143,10 @@ MonoBehaviour:
   waveBar: {fileID: 0}
   waveValue: {fileID: 0}
   wave1: {fileID: 1496739856975608, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
+  waves:
+  - {fileID: 1313499887950018, guid: f02c96d34345389449607f0022533e65, type: 2}
+  - {fileID: 1231556671105674, guid: c21f3bc185526134f95bec6c3e80e3ba, type: 2}
+  nEnemies: 0200000008000000
 --- !u!124 &124864736240046498
 Behaviour:
   m_ObjectHideFlags: 1
