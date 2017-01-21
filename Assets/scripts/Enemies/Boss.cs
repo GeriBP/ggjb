@@ -40,7 +40,7 @@ public class Boss : MonoBehaviour, IEnemy
     /// </summary>
     [SerializeField]
     private float fireWindupDuration = 1.5f;
-    
+
 	[SerializeField]
 	private float projectileSpeed = 5f;
 
@@ -70,6 +70,7 @@ public class Boss : MonoBehaviour, IEnemy
     private int nextAttack = 0;
     private float windupStartTime;
     private float timeLastFired;
+    private int initialNumberOfEnemies;
     #endregion
 
     void Awake()
@@ -108,6 +109,7 @@ public class Boss : MonoBehaviour, IEnemy
                         .Condition("Already set up", t => currentAttack >= nextAttack)
                         .Do("Set up", t =>
                         {
+                            Debug.Log("Setting up attack");
                             currentAttack++;
                             windupStartTime = Time.time;
                             return BehaviourTreeStatus.Success;
@@ -117,10 +119,19 @@ public class Boss : MonoBehaviour, IEnemy
                         BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
                     .Selector("Fire or wait")
                         .Condition("Timeout", t => Time.time >= windupStartTime + fireWindupDuration + fireDuration)
-                        .Sequence("Fire")
-                            .Do("Wait", t => Time.time >= timeLastFired + timeBetweenEachShot ? 
-                                BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
-                            .Do("Fire", Fire)
+                        .Parallel("Fire and rotate", 2, 2)
+                            .Sequence("Fire")
+                                .Condition("Time", t => Time.time >= windupStartTime + fireWindupDuration + 1f)
+                                .Do("Wait", t => Time.time >= timeLastFired + timeBetweenEachShot ? 
+                                    BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
+                                .Do("Fire", Fire)
+                            .End()
+                            .Do("Rotate", t => 
+                            {
+                                var time = Mathf.Clamp01((Time.time - (windupStartTime + fireWindupDuration)) / fireDuration);
+                                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 360f, time));
+                                return BehaviourTreeStatus.Success;
+                            })
                         .End()
                     .End()
                 .End()
@@ -152,7 +163,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     private BehaviourTreeStatus WaitUntilMinionsDefeated(TimeData t)
     {
-        return activeMinions.All(e => e == null) ? 
+        return gameManager.enemiesAlive <= initialNumberOfEnemies ? 
             BehaviourTreeStatus.Success :
             BehaviourTreeStatus.Running;
     }
@@ -167,13 +178,23 @@ public class Boss : MonoBehaviour, IEnemy
 
 	private BehaviourTreeStatus Fire(TimeData t)
 	{
-		var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-		projectile.MovementSpeed = projectileSpeed;
-        projectile.Direction = new Vector2(0, 1);
+        Debug.Log("Firing");
+        
+		SpawnProjectile(transform.rotation * new Vector2(0, 1));
+		SpawnProjectile(transform.rotation * new Vector2(-1, 0));
+		SpawnProjectile(transform.rotation * new Vector2(1, 0));
+		SpawnProjectile(transform.rotation * new Vector2(0, -1));
 
 		timeLastFired = Time.time;
 		return BehaviourTreeStatus.Success;
 	}
+
+    private void SpawnProjectile(Vector2 direction)
+    {   
+        var projectile = Instantiate(projectilePrefab, (Vector2)transform.position + direction, Quaternion.identity);
+		projectile.MovementSpeed = projectileSpeed;
+        projectile.Direction = direction;
+    }
 
     private BehaviourTreeStatus Reset(TimeData t)
     {
@@ -182,6 +203,8 @@ public class Boss : MonoBehaviour, IEnemy
         numberOfAttacksCompleted = 0;
         numberOfAttacksWoundUp = 0;
         currentAttack = -1;
+        nextAttack = 0;
+        initialNumberOfEnemies = gameManager.enemiesAlive;
 
         return BehaviourTreeStatus.Success;
     }
