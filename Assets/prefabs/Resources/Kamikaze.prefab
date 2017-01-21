@@ -142,4 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de6bbb6bbefa49d1a4c1a14244584e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavePoints: {fileID: 1697222919952702, guid: a849457ce7e35f84ea51083440a611c9, type: 2}
+  pixelExplosion: {fileID: 1511817286848110, guid: d7e57b4cb7e9e4b4ea326b14960d1cf3,
+    type: 2}
   movementSpeed: 5

@@ -12,6 +12,9 @@ using UnityEngine.Assertions;
 public class Shooter : MonoBehaviour, IEnemy
 {
 	[SerializeField]
+    private GameObject wavePoints, pixelExplosion;
+
+	[SerializeField]
 	private float movementSpeed = 70f;
 
 	/// <summary>
@@ -114,6 +117,12 @@ public class Shooter : MonoBehaviour, IEnemy
 
     public void TakeHit(float damage)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < 3; ++i)
+        {
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(transform.position.x - 0.2f, transform.position.x + 0.2f), UnityEngine.Random.Range(transform.position.y - 0.2f, transform.position.y + 0.2f), 0.0f);
+            Instantiate(wavePoints, spawnPos, Quaternion.identity);
+        }
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
