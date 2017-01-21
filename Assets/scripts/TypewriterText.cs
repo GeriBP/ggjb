@@ -8,15 +8,31 @@ using UnityEngine.UI;
 public class TypewriterText : MonoBehaviour 
 {
 	[SerializeField]
-	private float characterDelay = 0.1f;
+	private float fastCharacterDelay = 0.01f;
+
+	[SerializeField]
+	private float slowCharacterDelay = 0.1f;
 
 	[SerializeField]
 	[TextArea(5,10)]
 	private string text;
 
+	[SerializeField]
+	private float enterPromptDuration = 0.5f;
+
 	private float timeLastCharacterInserted;
 
+	private float currentCharacterDelay;
+
+	private int currentCharIndex = 0;
+
 	private Text uiText;
+
+	private bool waitingForEnterPress = false;
+	private string oldText;
+	private bool promptVisible = false;
+	private float timePromptLastShown;
+
 
 	void Awake()
 	{
@@ -24,14 +40,72 @@ public class TypewriterText : MonoBehaviour
 		uiText.text = string.Empty;
 	}
 
+	void Start()
+	{
+		currentCharacterDelay = fastCharacterDelay;
+	}
+
 	void Update()
 	{
-		if (Time.time >= timeLastCharacterInserted + characterDelay
-			&& text.Length > uiText.text.Length)
+		if (waitingForEnterPress)
 		{
-			var index = uiText.text.Length;
-			uiText.text = uiText.text + text[index];
+			if (Time.time - timePromptLastShown >= enterPromptDuration)
+			{
+				// Toggle prompt visibility
+				if (promptVisible)
+				{
+					uiText.text = oldText;
+				}
+				else
+				{
+					uiText.text = oldText + "\n[enter]";
+				}
+				promptVisible = !promptVisible;
+				timePromptLastShown = Time.time;
+			}
+
+			if (Input.GetKeyDown(KeyCode.Return))
+			{
+				waitingForEnterPress = false;
+				uiText.text = string.Empty;
+			}
+			return;
+		}
+
+		if (Time.time >= timeLastCharacterInserted + currentCharacterDelay
+			&& text.Length > currentCharIndex)
+		{
+			// Character after '\' have special meaning
+			var currentChar = text[currentCharIndex];
+			if (currentChar == '\\')
+			{
+				currentCharIndex++;
+				currentChar = text[currentCharIndex];
+				switch (currentChar)
+				{
+					case 's':
+						currentCharacterDelay = slowCharacterDelay;
+						break;
+					case 'f':
+						currentCharacterDelay = fastCharacterDelay;
+						break;
+					case 'e':
+						waitingForEnterPress = true;
+						oldText = uiText.text;
+						break;
+					case '\\':
+						currentCharIndex--;
+						break;
+					default: break;
+				}
+
+				currentCharIndex++;
+				currentChar = text[currentCharIndex];
+			}
+			uiText.text = uiText.text + currentChar;
 			timeLastCharacterInserted = Time.time;
+
+			currentCharIndex++;
 		}
 	}
 }

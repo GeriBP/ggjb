@@ -443,14 +443,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa021a07ad06425ba8856ef242ba517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fastCharacterDelay: 0.002
+  fastCharacterDelay: 0.01
   slowCharacterDelay: 0.1
   text: "login: \\sroot\\f\npassword: \\s********\\f\n\nLast login: 21/01/2088\n\nroot@hack_station:~#
-    \\scat ~/diary-latest.txt\\f\n\nEverything is ready for the cyber attack on Robobank.\n\nThe
-    plan:\n - Break through the 10 levels of firewalls\n - Moving around the system
-    grants you information\n - Steal energy from the defence systems by moving near
-    them\n - Use information against the defences with [space]\n - Don't touch the
-    defence systems!\n - Decrypt the database keeper\n\n"
+    \\scat ~/diary-latest.txt\\f \\e\n\nEverything is ready for the cyber attack on
+    Robobank.\n\nThe plan:\n - Break through the 10 levels of firewalls\n - Moving
+    around the system grants you information\n - Steal energy from the defence systems
+    by moving near them\n - Use information against the defences with [space]\n -
+    Don't touch the defence systems!\n - Decrypt the database keeper\n\\e\n"
+  enterPromptDuration: 0.5
 --- !u!1 &1629215680
 GameObject:
   m_ObjectHideFlags: 0
