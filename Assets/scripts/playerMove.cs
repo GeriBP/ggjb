@@ -44,9 +44,13 @@ public class playerMove : MonoBehaviour {
         {
             myRb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.R) && deathBool) //Reset
+        if (Input.GetKeyUp(KeyCode.R) && deathBool) //Reset
         {
+            deathBool = false;
+            transform.position = new Vector3(0.0f, 0.0f, 0.0f);
             GM.reconnect();
+            GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
             reconnectScreen.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Space) && waveAvailable && !deathBool) //ShockWave
@@ -137,7 +141,7 @@ public class playerMove : MonoBehaviour {
         gameObject.GetComponent<TrailRenderer>().enabled = false;
         if(!deathBool) Instantiate(explosion, transform.position, Quaternion.identity);
         deathBool = true;
-        yield return new WaitForSeconds(2.0f);
         reconnectScreen.SetActive(true);
+        yield return null;
     }
 }

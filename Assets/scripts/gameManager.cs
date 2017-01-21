@@ -55,10 +55,26 @@ public class gameManager : MonoBehaviour {
     public void reconnect()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //GameObject inst = GameObject.Find("Shooter(Clone)");
+        StopCoroutine("spawner");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Risk");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
+  
+        gameObjects = GameObject.FindGameObjectsWithTag("PickUp");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
         Destroy(currentGo);
         if (currentWave > 0) --currentWave;
         enemiesAlive = nEnemies[currentWave];
         Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        StartCoroutine("spawner");
     }
 
     IEnumerator spawner()
