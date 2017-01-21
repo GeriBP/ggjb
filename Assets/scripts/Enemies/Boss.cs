@@ -258,9 +258,13 @@ public class Boss : MonoBehaviour, IEnemy
         if (currentHP <= 0f)
         {
             gameManager.enemiesAlive--;
-            ui.SetHealthBarVisible(false);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy()
+    {
+        ui.SetHealthBarVisible(false);
     }
 }
