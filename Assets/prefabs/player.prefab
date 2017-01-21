@@ -233,7 +233,7 @@ MonoBehaviour:
   smooth: 0.1
   pickUpPoints: 2
   riskPoints: 5
-  speedPoints: 0.2
+  speedPoints: 1
   maxScale: 1
   speedThreshhold: 10
   smoothWave: 2
