@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - PickUp
   - Limit
+  - Risk
   layers:
   - Default
   - TransparentFX

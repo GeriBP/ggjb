@@ -7,6 +7,7 @@ public class gameManager : MonoBehaviour {
     public int time;
     public Slider waveBar;
     public Text waveValue;
+    public GameObject wave1;
 	// Use this for initialization
 	void Start () {
         time = 0;
@@ -24,7 +25,11 @@ public class gameManager : MonoBehaviour {
         //waveBar.value++; //Descrease/increase wave with time
         if (time == 4.0f)//example wave
         {
-            //Instantiate wave 1
+            Instantiate(wave1, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        }
+        if (time == 50.0f)//example wave
+        {
+            Instantiate(wave1, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         yield return new WaitForSeconds(0.1f);
         StartCoroutine("clockTick");

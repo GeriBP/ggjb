@@ -43,6 +43,10 @@ public class playerMove : MonoBehaviour {
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), smooth);
         }
+        if (myRb.velocity.magnitude > 3)
+        {
+            GM.addWave(0.01f);
+        }
     }
 
     public void TakeHit()
@@ -56,6 +60,16 @@ public class playerMove : MonoBehaviour {
         if (other.tag == "PickUp")
         {
             GM.addWave(pickUpPoints);
+            //Instantiate enemy death anim
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Risk")
+        {
+            GM.addWave(10.0f);
         }
     }
 }

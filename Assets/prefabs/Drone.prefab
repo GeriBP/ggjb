@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 114604882399086672}
   - component: {fileID: 58783642044218268}
   - component: {fileID: 50056605615730292}
+  - component: {fileID: 58621003407089348}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Risk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332714294451846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.66, z: 0}
+  m_LocalPosition: {x: -15.046585, y: -6.3852177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,6 +103,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58621003407089348
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332714294451846}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1
 --- !u!58 &58783642044218268
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -127,4 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb3903f0ae114b6cbebd493acc25f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavePoints: {fileID: 1697222919952702, guid: a849457ce7e35f84ea51083440a611c9, type: 2}
   movementSpeed: 100
