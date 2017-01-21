@@ -11,7 +11,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Drone : MonoBehaviour, IEnemy 
 {
-    public GameObject wavePoints;
+    public GameObject wavePoints, pixelExplosion;
 
 	[SerializeField]
 	private float movementSpeed = 200f;
@@ -48,6 +48,7 @@ public class Drone : MonoBehaviour, IEnemy
                 Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(transform.position.x-0.2f, transform.position.x + 0.2f), UnityEngine.Random.Range(transform.position.y - 0.2f, transform.position.y + 0.2f), 0.0f);
                 Instantiate(wavePoints, spawnPos, Quaternion.identity);
             }
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

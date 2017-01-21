@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerMove : MonoBehaviour {
-    public float speed, smooth, pickUpPoints;
+    public float speed, smooth, pickUpPoints, maxScale;
     public gameManager GM;
     private Rigidbody2D myRb;
+    public GameObject wave;
+    private bool waveAvailable = true;
 	// Use this for initialization
 	void Start () {
         myRb = GetComponent<Rigidbody2D>();
@@ -29,9 +31,23 @@ public class playerMove : MonoBehaviour {
         {
             myRb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.Space)) //ShockWave
+        if (Input.GetKeyUp(KeyCode.Space) && waveAvailable) //ShockWave
         {
-            
+            StartCoroutine("waveCooldown");
+            float meter = GM.waveBar.value;
+            if(meter >= 100.0f)
+            {
+                //SPECIAL WAVE
+                float proportion = meter / 100.0f;
+                StartCoroutine("shootWave", proportion);
+                GM.waveBar.value = 0;
+            }
+            else if(meter >= 10.0f) //10.0f is the minumum waveMeter you can spend
+            {
+                float proportion = meter / 100.0f;
+                StartCoroutine("shootWave", proportion);
+                GM.waveBar.value = 0;
+            }
         }
     }
 
@@ -67,9 +83,27 @@ public class playerMove : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Risk")
+        if (other.tag == "Risk" && myRb.velocity.magnitude > 3)
         {
-            GM.addWave(10.0f);
+            GM.addWave(5.0f);
         }
+    }
+
+    IEnumerator shootWave(float proportion) //16.6f proportioon is max
+    {
+        GameObject w = Instantiate(wave, transform.position, Quaternion.identity) as GameObject;
+        for (int i = 0; i < 200; ++i)
+        {
+            w.transform.localScale = Vector3.Lerp(w.transform.localScale, new Vector3(maxScale * proportion, maxScale * proportion, 0f), smooth * Time.deltaTime);
+            yield return new WaitForSeconds(0.01f);
+        }
+        Destroy(w);
+    }
+
+    IEnumerator waveCooldown()
+    {
+        waveAvailable = false;
+        yield return new WaitForSeconds(2.0f);
+        waveAvailable = true;
     }
 }

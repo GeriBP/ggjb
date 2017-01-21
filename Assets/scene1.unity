@@ -203,7 +203,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -1000
   m_Sprite: {fileID: 21300000, guid: 2108517bc1270554eb13b58cf0c034ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   time: 0
   waveBar: {fileID: 1682415778}
   waveValue: {fileID: 1313011804}
-  wave1: {fileID: 1854275422169598, guid: 80549305de504be4e9ca807f8a1cad4d, type: 2}
+  wave1: {fileID: 1423954514096370, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
 --- !u!1 &1655636657
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +630,9 @@ MonoBehaviour:
   speed: 20
   smooth: 0.1
   pickUpPoints: 1
+  maxScale: 8
   GM: {fileID: 1346392965}
+  wave: {fileID: 1673211096957806, guid: 9dd5d5e762fb2da4eb30ca8491d9d8fb, type: 2}
 --- !u!50 &1655636659
 Rigidbody2D:
   serializedVersion: 4
@@ -877,12 +879,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 0.8161765, g: 0.21004543, b: 0.21004543, a: 1}
     m_HighlightedColor: {r: 0.86764705, g: 0.33812717, b: 0.33812717, a: 1}
@@ -907,7 +909,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 21.5
+  m_Value: 75.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1029,7 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
