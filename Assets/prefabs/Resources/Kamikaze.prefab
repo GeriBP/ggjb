@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50981797526366502}
   - component: {fileID: 61602966499274366}
   - component: {fileID: 114224451523521418}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61602966499274366
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de6bbb6bbefa49d1a4c1a14244584e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 5
