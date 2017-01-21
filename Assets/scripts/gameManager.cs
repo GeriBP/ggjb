@@ -18,8 +18,8 @@ public class gameManager : MonoBehaviour {
     void Start () {
         time = 0;
         //StartCoroutine("clockTick");
-        enemiesAlive = nEnemies[0];
-        Instantiate(waves[0], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        enemiesAlive = nEnemies[currentWave];
+        Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         StartCoroutine("spawner");
     }
 	
