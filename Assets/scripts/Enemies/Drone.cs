@@ -29,7 +29,7 @@ public class Drone : MonoBehaviour, IEnemy
 
 	void Start()
 	{
-		currentMovementDirection = new Vector2(1, 1).normalized;
+		currentMovementDirection = Random.insideUnitCircle.normalized;
 	}
 
 	void FixedUpdate()
