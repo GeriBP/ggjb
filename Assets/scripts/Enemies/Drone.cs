@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Simple enemy type that bounces off objects and does not follow the player.
@@ -14,7 +15,7 @@ public class Drone : MonoBehaviour, IEnemy
     public GameObject wavePoints;
 
 	[SerializeField]
-	private float movementSpeed = 200f;
+	private float movementSpeed = 3f;
 
 	private Vector2 currentMovementDirection;
 
@@ -33,7 +34,7 @@ public class Drone : MonoBehaviour, IEnemy
 
 	void FixedUpdate()
 	{
-		rigidbody.velocity = currentMovementDirection * movementSpeed * Time.fixedDeltaTime;
+		rigidbody.velocity = currentMovementDirection * movementSpeed;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
