@@ -121,14 +121,14 @@ public class Boss : MonoBehaviour, IEnemy
                         .Condition("Timeout", t => Time.time >= windupStartTime + fireWindupDuration + fireDuration)
                         .Parallel("Fire and rotate", 2, 2)
                             .Sequence("Fire")
+                                .Condition("Time", t => Time.time >= windupStartTime + fireWindupDuration + 1f)
                                 .Do("Wait", t => Time.time >= timeLastFired + timeBetweenEachShot ? 
                                     BehaviourTreeStatus.Success : BehaviourTreeStatus.Running)
                                 .Do("Fire", Fire)
                             .End()
                             .Do("Rotate", t => 
                             {
-                                var time = Mathf.Clamp01((Time.time - windupStartTime + fireWindupDuration) / fireDuration);
-                                Debug.Log(time);
+                                var time = Mathf.Clamp01((Time.time - (windupStartTime + fireWindupDuration)) / fireDuration);
                                 transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Lerp(0f, 360f, time));
                                 return BehaviourTreeStatus.Success;
                             })
