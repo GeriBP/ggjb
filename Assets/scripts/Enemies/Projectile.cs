@@ -23,7 +23,11 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector3(Direction.x*speed, Direction.y*speed, 0.0f);
+        Rigidbody2D myRb = GetComponent<Rigidbody2D>();
+        myRb.velocity = new Vector3(Direction.x*speed, Direction.y*speed, 0.0f);
+        Vector2 v = myRb.velocity;
+        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         Destroy(gameObject, lifespan);
     }
 
