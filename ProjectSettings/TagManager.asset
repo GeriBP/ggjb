@@ -19,11 +19,11 @@ TagManager:
   - 
   - Limit
   - Player
-  - Enemy
   - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Drone
+  - Kamikaze
+  - Shooter
   - 
   - 
   - 
