@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using UnityEngine.Assertions;
 
 public class playerMove : MonoBehaviour {
     public float speed, smooth, pickUpPoints, maxScale;
@@ -9,9 +11,17 @@ public class playerMove : MonoBehaviour {
     private Rigidbody2D myRb;
     public GameObject wave;
     private bool waveAvailable = true;
+
+    private StudioEventEmitter soundEmitter;
+
 	// Use this for initialization
-	void Start () {
+	void Awake() 
+    {
         myRb = GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(myRb);
+
+        soundEmitter = GetComponent<StudioEventEmitter>();
+        Assert.IsNotNull(soundEmitter);
     }
 	
 	// Update is called once per frame
@@ -51,6 +61,11 @@ public class playerMove : MonoBehaviour {
                 StartCoroutine("shootWave", proportion);
                 GM.waveBar.value = 0;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            soundEmitter.SetParameter("Prueba_1", 2f);
         }
     }
 
