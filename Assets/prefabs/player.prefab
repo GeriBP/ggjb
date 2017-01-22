@@ -24,8 +24,6 @@ GameObject:
   - component: {fileID: 114900997492984018}
   - component: {fileID: 61253032717832216}
   - component: {fileID: 96730268978374374}
-  - component: {fileID: 114955063609366310}
-  - component: {fileID: 114478071977351010}
   m_Layer: 9
   m_Name: player
   m_TagString: Player
@@ -196,28 +194,6 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114478071977351010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401695259562210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Event1
-  PlayEvent: 1
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 1
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &114900997492984018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,8 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   smooth: 3
-  pickUpPoints: 2
-  riskPoints: 5
+  pickUpPoints: 5
+  riskPoints: 1
   speedPoints: 1
   maxScale: 1
   speedThreshhold: 8
@@ -242,25 +218,9 @@ MonoBehaviour:
   myRb: {fileID: 50576203017536978}
   reconnectScreen: {fileID: 0}
   explosion: {fileID: 1421413779020934, guid: 4ed5e67b9ce4afe40a63bf8e34f60245, type: 2}
+  pickUpExp: {fileID: 1937897083989344, guid: 94c864a5605ffd34cbc84cdeb2c81686, type: 2}
   wave: {fileID: 114026853890443544, guid: 6dd3e933ada75c747a42ed7fc5544c0c, type: 2}
   buttonBool: 0
---- !u!114 &114955063609366310
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401695259562210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 1
-  UnloadEvent: 0
-  Banks:
-  - Master Bank
-  CollisionTag: 
-  PreloadSamples: 1
 --- !u!212 &212056581182851506
 SpriteRenderer:
   m_ObjectHideFlags: 1
