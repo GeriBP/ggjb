@@ -160,6 +160,6 @@ public class gameManager : MonoBehaviour {
     IEnumerator GoToIntroAfterDelay()
     {
         yield return new WaitForSeconds(11f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("intro");
     }
 }
