@@ -112,6 +112,13 @@ public class gameManager : MonoBehaviour {
             else //end game
             {
                 Debug.Log("End game");
+        
+               /* GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("PickUp");
+
+                for (var i = 0; i < gameObjects.Length; i++)
+                {
+                    Destroy(gameObjects[i]);
+                }*/
                 normalBackground.SetActive(false);
                 cutsceneBackground.SetActive(true);
                 player.gameObject.SetActive(false);

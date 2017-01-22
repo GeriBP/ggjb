@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de300c4ba8fb1bd4daa5e9352a53a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalBackground: {fileID: 0}
+  cutsceneBackground: {fileID: 0}
   time: 0
   waveBar: {fileID: 0}
   waveValue: {fileID: 0}
@@ -155,7 +157,7 @@ MonoBehaviour:
   - {fileID: 1422305410414770, guid: 3d8544cb80e487c4286ed39ed1dad7af, type: 2}
   - {fileID: 1939491599874166, guid: ce1e9cdc197b86f4cb89cb0f1996119b, type: 2}
   - {fileID: 1848926331093248, guid: fb354f95b1ecef943873388cdcc42418, type: 2}
-  - {fileID: 1092734949030680, guid: ad0b58f40edf9466da8792147a15756b, type: 2}
+  - {fileID: 1689206295140882, guid: ba58e21a24dca744d919f35358d9639c, type: 2}
   nEnemies: 04000000060000000a00000002000000080000000500000006000000040000000a000000040000000800000001000000
   player: {fileID: 0}
 --- !u!124 &124864736240046498

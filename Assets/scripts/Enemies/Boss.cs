@@ -18,7 +18,7 @@ public class Boss : MonoBehaviour, IEnemy
     private GameObject minionPrefab;
 
     [SerializeField]
-    private GameObject pixelExplosion;
+    private GameObject pixelExplosion, bigExplosion;
 
 	/// <summary>
 	/// Prefab to spawn for the projectile
@@ -212,10 +212,10 @@ public class Boss : MonoBehaviour, IEnemy
 
 	private BehaviourTreeStatus Fire(TimeData t)
 	{
-		SpawnProjectile(transform.rotation * new Vector2(0, 1));
-		SpawnProjectile(transform.rotation * new Vector2(-1, 0));
-		SpawnProjectile(transform.rotation * new Vector2(1, 0));
-		SpawnProjectile(transform.rotation * new Vector2(0, -1));
+		SpawnProjectile(transform.rotation * new Vector2(1, 1).normalized);
+		SpawnProjectile(transform.rotation * new Vector2(1, -1).normalized);
+		SpawnProjectile(transform.rotation * new Vector2(-1, -1).normalized);
+		SpawnProjectile(transform.rotation * new Vector2(-1, 1).normalized);
 
 		timeLastFired = Time.time;
 		return BehaviourTreeStatus.Success;
@@ -258,7 +258,14 @@ public class Boss : MonoBehaviour, IEnemy
         if (currentHP <= 0f)
         {
             gameManager.enemiesAlive--;
+            /*Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Instantiate(bigExplosion, transform.position, Quaternion.identity);
+            Instantiate(bigExplosion, transform.position, Quaternion.identity);*/
+            StartCoroutine("waveCooldown");
             Destroy(gameObject);
         }
     }
@@ -267,4 +274,28 @@ public class Boss : MonoBehaviour, IEnemy
     {
         ui.SetHealthBarVisible(false);
     }
+
+   /* IEnumerator waveCooldown()
+    {
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.2f);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.3ff);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(bigExplosion, transform.position, Quaternion.identity);
+        Instantiate(bigExplosion, transform.position, Quaternion.identity);
+        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+        Instantiate(bigExplosion, transform.position, Quaternion.identity);
+        Instantiate(bigExplosion, transform.position, Quaternion.identity);
+    }*/
 }
