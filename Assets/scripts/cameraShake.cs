@@ -35,7 +35,7 @@ public class cameraShake : MonoBehaviour
         {
             originPosition = transform.position;
             originRotation = transform.rotation;
-            shake_intensity = .5f*proportion;
+            shake_intensity = .2f*proportion;
             shake_decay = 0.005f * proportion;
         }
     }
