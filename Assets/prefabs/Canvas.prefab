@@ -712,7 +712,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: db293b7dd5867604e8c47b01ee4c115a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88b99d82ce9db9c40b2942c99ab9d830, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: YOU GOT KICKED OUT OF THE SYSTEM
+  m_Text: -YOU GOT KICKED OUT OF THE SYSTEM
 --- !u!222 &222175112967929976
 CanvasRenderer:
   m_ObjectHideFlags: 1
