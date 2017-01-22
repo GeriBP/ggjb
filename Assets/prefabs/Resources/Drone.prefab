@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50056605615730292}
   - component: {fileID: 58621003407089348}
   - component: {fileID: 212733630192432894}
+  - component: {fileID: 114953421330186288}
   m_Layer: 12
   m_Name: Drone
   m_TagString: Risk
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332714294451846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.1, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +110,28 @@ MonoBehaviour:
   dronePs: {fileID: 1997705508156116, guid: 31c95cca9efd0724cb4523513ee8b42d, type: 2}
   ex2: {fileID: 1574520607669376, guid: 877db1aa98d4c0047ad5fd6336739e66, type: 2}
   movementSpeed: 3
+--- !u!114 &114953421330186288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332714294451846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Ingame/SFXs/Enemies/Enemy_1_Die
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!212 &212733630192432894
 SpriteRenderer:
   m_ObjectHideFlags: 1

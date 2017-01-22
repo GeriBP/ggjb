@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
@@ -10,6 +11,7 @@ using Random = UnityEngine.Random;
 /// Simple enemy type that bounces off objects and does not follow the player.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class Drone : MonoBehaviour, IEnemy 
 {
 	[SerializeField]
@@ -21,11 +23,14 @@ public class Drone : MonoBehaviour, IEnemy
 	private Vector2 currentMovementDirection;
 
 	private new Rigidbody2D rigidbody;
+	private StudioEventEmitter soundEmitter;
 
 	void Awake()
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
+		soundEmitter = GetComponent<StudioEventEmitter>();
 		Assert.IsNotNull(rigidbody, "Drone must have a Rigidbody2D attached to it.");
+		Assert.IsNotNull(soundEmitter, "Drone must have a StudioEventEmitter attached to it.");
 	}
 
 	void Start()
@@ -62,7 +67,11 @@ public class Drone : MonoBehaviour, IEnemy
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
         Instantiate(ex2, transform.position, Quaternion.identity);
         Instantiate(dronePs, transform.position, Quaternion.identity);
+
+		soundEmitter.Play();
+
         gameManager.enemiesAlive--;
+		
         Destroy(gameObject);
     }
 }
