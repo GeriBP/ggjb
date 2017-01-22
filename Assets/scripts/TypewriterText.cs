@@ -34,14 +34,14 @@ public class TypewriterText : MonoBehaviour
 	private string oldText;
 	private bool promptVisible = false;
 	private float timePromptLastShown;
-    private StudioEventEmitter emiter, emiter2;
+    private StudioEventEmitter typeSound, acceptSound;
 
     void Awake()
 	{
         var soundEmitters = GetComponents<StudioEventEmitter>();
         Assert.IsTrue(soundEmitters.Length == 2, "Manager requires two sound emitters");
-        emiter = soundEmitters[0];
-        emiter2 = soundEmitters[1];
+        typeSound = soundEmitters[0];
+        acceptSound = soundEmitters[1];
         uiText = GetComponent<Text>();
 	}
 
@@ -73,6 +73,7 @@ public class TypewriterText : MonoBehaviour
 
 			if (Input.anyKeyDown)
 			{
+				typeSound.Play();
 				waitingForKeyPress = false;
 				uiText.text = string.Empty;
 			}
@@ -113,7 +114,9 @@ public class TypewriterText : MonoBehaviour
 				currentChar = text[currentCharIndex];
 			}
 			uiText.text = uiText.text + currentChar;
-            emiter.Play();
+
+            typeSound.Play();
+
             timeLastCharacterInserted = Time.time;
 
 			currentCharIndex++;
