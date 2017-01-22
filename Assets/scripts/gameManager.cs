@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class gameManager : MonoBehaviour {
 
@@ -21,10 +22,13 @@ public class gameManager : MonoBehaviour {
     private GameObject currentGo;
     public playerMove player;
     public static bool bossDead = false;
+    private StudioEventEmitter emiter;
     // Use this for initialization
     void Start () {
         time = 0;
         //StartCoroutine("clockTick");
+        emiter = GetComponent<StudioEventEmitter>();
+        emiter.SetParameter("Level",currentWave+1);
         enemiesAlive = nEnemies[currentWave];
         currentGo = Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         StartCoroutine("spawner");
@@ -95,7 +99,11 @@ public class gameManager : MonoBehaviour {
             Destroy(gameObjects[i]);
         }
         Destroy(currentGo);
-        if (currentWave > 0) --currentWave;
+        if (currentWave > 0)
+        {
+            --currentWave;
+            emiter.SetParameter("Level", currentWave + 1);
+        }
         enemiesAlive = nEnemies[currentWave];
         Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         StartCoroutine("spawner");
@@ -108,6 +116,7 @@ public class gameManager : MonoBehaviour {
         {
             currentWave++;
             if (waves.Length > currentWave) {
+                emiter.SetParameter("Level", currentWave + 1);
                 enemiesAlive = nEnemies[currentWave];
                 Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
             }
