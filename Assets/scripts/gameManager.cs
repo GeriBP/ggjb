@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using FMODUnity;
+using UnityEngine.Assertions;
 
 public class gameManager : MonoBehaviour {
 
@@ -22,15 +23,20 @@ public class gameManager : MonoBehaviour {
     private GameObject currentGo;
     public playerMove player;
     public static bool bossDead = false;
-    private StudioEventEmitter emiter;
+    private StudioEventEmitter emiter, emiter2;
     // Use this for initialization
     void Start () {
         time = 0;
         //StartCoroutine("clockTick");
-        emiter = GetComponent<StudioEventEmitter>();
-        emiter.SetParameter("Level",currentWave+1);
+        var soundEmitters = GetComponents<StudioEventEmitter>();
+        Assert.IsTrue(soundEmitters.Length == 2, "Manager requires two sound emitters");
+        emiter = soundEmitters[0];
+        emiter2 = soundEmitters[1];
+        emiter.SetParameter("Level",currentWave+2);
+
         enemiesAlive = nEnemies[currentWave];
         currentGo = Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        emiter2.Play();
         StartCoroutine("spawner");
     }
 	
@@ -102,10 +108,11 @@ public class gameManager : MonoBehaviour {
         if (currentWave > 0)
         {
             --currentWave;
-            emiter.SetParameter("Level", currentWave + 1);
         }
         enemiesAlive = nEnemies[currentWave];
+        emiter.SetParameter("Level", currentWave + 2);
         Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+        emiter2.Play();
         StartCoroutine("spawner");
         player.revive();
     }
@@ -116,9 +123,12 @@ public class gameManager : MonoBehaviour {
         {
             currentWave++;
             if (waves.Length > currentWave) {
-                emiter.SetParameter("Level", currentWave + 1);
+                Debug.Log(currentWave);
+                emiter.SetParameter("Level", currentWave + 2);
+                //emiter.Event("Summon");
                 enemiesAlive = nEnemies[currentWave];
                 Instantiate(waves[currentWave], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+                emiter2.Play();
             }
             else //end game
             {
