@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 public class Shooter : MonoBehaviour, IEnemy
 {
 	[SerializeField]
-    private GameObject wavePoints, pixelExplosion, shooterPs, ex2;
+    private GameObject wavePoints, pixelExplosion, shooterPs, ex2, shootPoint;
 
 	[SerializeField]
 	private float movementSpeed = 70f;
@@ -48,8 +48,9 @@ public class Shooter : MonoBehaviour, IEnemy
 	/// Target object to move towards.
 	/// </summary>
 	private Transform target;
+    private SpriteRenderer sr;
 
-	private float timeLastShotFired;
+    private float timeLastShotFired;
 
 	void Awake()
 	{
@@ -60,6 +61,8 @@ public class Shooter : MonoBehaviour, IEnemy
     // Use this for initialization
     void Start () 
 	{
+        sr = GetComponent<SpriteRenderer>();
+        StartCoroutine("orbit");
 		var player = FindObjectOfType<playerMove>();
 		Assert.IsNotNull(player, "Shooter enemy must be in the same scene as the player");
 		target = player.transform;
@@ -85,7 +88,7 @@ public class Shooter : MonoBehaviour, IEnemy
 
 	private BehaviourTreeStatus Fire(TimeData t)
 	{
-		var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+		var projectile = Instantiate(projectilePrefab, shootPoint.transform.position, Quaternion.identity);
 		projectile.MovementSpeed = projectileSpeed;
 		projectile.Direction = (target.position - transform.position).normalized;
 
@@ -127,5 +130,13 @@ public class Shooter : MonoBehaviour, IEnemy
         Instantiate(shooterPs, transform.position, Quaternion.identity);
         gameManager.enemiesAlive--;
         Destroy(gameObject);
+    }
+
+    IEnumerator orbit()
+    {
+        if (sr.sortingOrder == 1) sr.sortingOrder = 3;
+        else sr.sortingOrder = 1;
+        yield return new WaitForSeconds(4.8f);
+        StartCoroutine("orbit");
     }
 }

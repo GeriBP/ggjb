@@ -31,6 +31,8 @@ public class Drone : MonoBehaviour, IEnemy
 	void Start()
 	{
 		currentMovementDirection = Random.insideUnitCircle.normalized;
+        float angleZ = Random.Range(0.0f, 360.0f);
+        transform.Rotate(transform.rotation.x, transform.rotation.y, angleZ);
 	}
 
 	void FixedUpdate()

@@ -43,7 +43,10 @@ public class Kamikaze : MonoBehaviour, IEnemy
 		var toPlayer = (target.position - transform.position).normalized;
 		var newVelocity = toPlayer * movementSpeed;
 		rigidbody.velocity = newVelocity;
-	}
+        Vector2 v = rigidbody.velocity;
+        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
