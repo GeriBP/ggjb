@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
+
+    [SerializeField]
+    private GameObject normalBackground, cutsceneBackground;
+
     public int time;
     public Slider waveBar;
     public Text waveValue;
@@ -27,6 +31,23 @@ public class gameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         waveValue.text = waveBar.value.ToString();
+
+        // Debug
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach (var enemy in FindObjectsOfType<Drone>())
+            {
+                enemy.TakeHit(9999f);
+            }
+            foreach (var enemy in FindObjectsOfType<Shooter>())
+            {
+                enemy.TakeHit(9999f);
+            }
+            foreach (var enemy in FindObjectsOfType<Kamikaze>())
+            {
+                enemy.TakeHit(9999f);
+            }
+        }
     }
 
     IEnumerator clockTick()
@@ -90,10 +111,22 @@ public class gameManager : MonoBehaviour {
             }
             else //end game
             {
+                Debug.Log("End game");
+                normalBackground.SetActive(false);
+                cutsceneBackground.SetActive(true);
+                player.gameObject.SetActive(false);
+                StartCoroutine(GoToIntroAfterDelay());
 
+                yield return null;
             }
         }
         yield return new WaitForSeconds(0.1f);
         StartCoroutine("spawner");
+    }
+
+    IEnumerator GoToIntroAfterDelay()
+    {
+        yield return new WaitForSeconds(11f);
+        SceneManager.LoadScene(0);
     }
 }
