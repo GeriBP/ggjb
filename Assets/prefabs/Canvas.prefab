@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 224932124573797240}
   - component: {fileID: 222945022287319672}
   - component: {fileID: 114939785620413348}
+  - component: {fileID: 114211458312338994}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -237,6 +238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224079231021827942}
+  - component: {fileID: 95316160051058462}
   m_Layer: 5
   m_Name: loseScreen
   m_TagString: Untagged
@@ -261,6 +263,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95316160051058462
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917187077401258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04cc4c3be0a634e81a90f00faa7c1554, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114162594139746770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,6 +296,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114211458312338994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857964852347930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa021a07ad06425ba8856ef242ba517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastCharacterDelay: 0.01
+  slowCharacterDelay: 0.1
+  text: YOU GOT KICKED OUT OF THE SYSTEM
+  enterPromptDuration: 0.5
 --- !u!114 &114217866423600892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,14 +491,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.088559665, g: 0.09035315, b: 0.09558821, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a5e57e82a845f046b2ecb9e5a458074, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -707,7 +741,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f1db8eb606b2bef4ea49eeb44b5c0d33, type: 3}
-    m_FontSize: 77
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -718,7 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -YOU GOT KICKED OUT OF THE SYSTEM
+  m_Text: YOU GOT KICKED OUT OF THE SYSTEM
 --- !u!222 &222175112967929976
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -781,7 +815,7 @@ Canvas:
   m_GameObject: {fileID: 1816962119959342}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -1000,7 +1034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -92, y: -7}
+  m_AnchoredPosition: {x: -2, y: -7}
   m_SizeDelta: {x: 113, y: 57}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &224763650702425450
@@ -1073,6 +1107,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 12, y: -12}
-  m_SizeDelta: {x: 790, y: 123}
+  m_AnchoredPosition: {x: 4, y: -80}
+  m_SizeDelta: {x: 574, y: 89}
   m_Pivot: {x: 0.5, y: 1}
