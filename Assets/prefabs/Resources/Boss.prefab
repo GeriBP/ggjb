@@ -665,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1099599542f4c38bc125702f2e7725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1816962119959342, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}
   startingHP: 2
   minionPrefab: {fileID: 1157614461832246, guid: b91e12f0041f23a46b196ce698772538,
     type: 2}
