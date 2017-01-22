@@ -430,6 +430,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1879561624}
+    - target: {fileID: 114086801620941040, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+        type: 2}
+      propertyPath: Params.Array.data[0].Value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bcd4b84160c64d3dbf2be2170819a7c, type: 2}
   m_IsPrefabParent: 0
@@ -632,6 +637,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1141995224 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1630909243605748, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 527274274}
+--- !u!114 &1141995233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1141995224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Ingame/SFXs/Enemies/Summon
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1313011804 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114679626061075246, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
