@@ -19,6 +19,7 @@ public class playerMove : MonoBehaviour {
 
     private StudioEventEmitter engineSoundEmitter;
     private StudioEventEmitter gunSoundEmitter;
+    private StudioEventEmitter deathSoundEmitter;
 
 	// Use this for initialization
 	void Awake() 
@@ -27,9 +28,10 @@ public class playerMove : MonoBehaviour {
         Assert.IsNotNull(myRb);
 
         var soundEmitters = GetComponents<StudioEventEmitter>();
-		Assert.IsTrue(soundEmitters.Length == 2, "Player requires two sound emitters");
+		Assert.IsTrue(soundEmitters.Length == 3, "Player requires three sound emitters");
         engineSoundEmitter = soundEmitters[0];
         gunSoundEmitter = soundEmitters[1];
+        deathSoundEmitter = soundEmitters[2];
     }
 	
 	// Update is called once per frame
@@ -144,6 +146,8 @@ public class playerMove : MonoBehaviour {
     }
     IEnumerator death()
     {
+        deathSoundEmitter.Play();
+        
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<TrailRenderer>().enabled = false;
         if(!deathBool) Instantiate(explosion, transform.position, Quaternion.identity);
