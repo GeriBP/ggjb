@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,11 +34,15 @@ public class TypewriterText : MonoBehaviour
 	private string oldText;
 	private bool promptVisible = false;
 	private float timePromptLastShown;
+    private StudioEventEmitter emiter, emiter2;
 
-
-	void Awake()
+    void Awake()
 	{
-		uiText = GetComponent<Text>();
+        var soundEmitters = GetComponents<StudioEventEmitter>();
+        Assert.IsTrue(soundEmitters.Length == 2, "Manager requires two sound emitters");
+        emiter = soundEmitters[0];
+        emiter2 = soundEmitters[1];
+        uiText = GetComponent<Text>();
 	}
 
 	void OnEnable()
@@ -108,7 +113,8 @@ public class TypewriterText : MonoBehaviour
 				currentChar = text[currentCharIndex];
 			}
 			uiText.text = uiText.text + currentChar;
-			timeLastCharacterInserted = Time.time;
+            emiter.Play();
+            timeLastCharacterInserted = Time.time;
 
 			currentCharIndex++;
 		}
