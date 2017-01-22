@@ -13,12 +13,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114313232018928302}
-  - {fileID: 114437253635247576}
+  - {fileID: 114413624002644844}
   EditorEvents:
-  - {fileID: 114566964823369892}
-  MasterBankRef: {fileID: 114437253635247576}
+  - {fileID: 114524831135655760}
+  - {fileID: 114963026889300870}
+  - {fileID: 114453520575725748}
+  - {fileID: 114274628075442980}
+  - {fileID: 114903851125555184}
+  - {fileID: 114431098346287690}
+  - {fileID: 114520116421913526}
+  - {fileID: 114465420314350450}
+  - {fileID: 114848940268170754}
+  - {fileID: 114211739572973848}
+  - {fileID: 114959114937538270}
+  - {fileID: 114570727708230686}
+  - {fileID: 114767741856145828}
+  - {fileID: 114745220598890830}
+  MasterBankRef: {fileID: 114413624002644844}
   StringsBankRef: {fileID: 114313232018928302}
-  stringsBankWriteTime: 636205974915267913
+  stringsBankWriteTime: 636206822340000000
   cacheVersion: 2
 --- !u!114 &114001445641203974
 MonoBehaviour:
@@ -71,6 +84,65 @@ MonoBehaviour:
   - Name: Desktop
     Value: 520992
   Exists: 1
+--- !u!114 &114168073724220448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Music_Intro_Start_Instance
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114211739572973848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Spaceship/Spaceship_Engine
+  guid: afae829c9bd68843991a814f5984c8e2
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114485665012666788}
+  - {fileID: 114349924919488946}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114274628075442980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_2_Gun
+  guid: 4010acf2f9505e4d873d2f2e776c0b8a
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114313232018928302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,12 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636205974915267913
+  Path: Assets/Audio/Desktop/Master Bank.strings.bank
+  lastModified: 636206822340000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 670
+    Value: 1316
   Exists: 1
 --- !u!114 &114343719097456980
 MonoBehaviour:
@@ -103,6 +175,21 @@ MonoBehaviour:
   Name: Prueba_1
   Min: 0
   Max: 2
+  Default: 0
+--- !u!114 &114349924919488946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: LOAD
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &114357753535132746
 MonoBehaviour:
@@ -137,6 +224,45 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &114413624002644844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/rorydungan/dev/ggjb2017/Assets/Audio/Desktop/Master Bank.bank
+  lastModified: 636206822340000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 6276288
+  Exists: 1
+--- !u!114 &114431098346287690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_2_Die
+  guid: 7debadaaca1f8b439c07de5381f8bb94
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114437253635247576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +280,50 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 520992
-  Exists: 1
+  Exists: 0
+--- !u!114 &114453520575725748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/Music/Music_Intro_Start
+  guid: 246a2fa4e8b16647b75a07771cf39a94
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114168073724220448}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114465420314350450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_Boss_Gun
+  guid: 89c7492a32cacc40bc3385e506246ae8
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114474620088507762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +342,79 @@ MonoBehaviour:
   - Name: Desktop
     Value: 520992
   Exists: 1
+--- !u!114 &114485665012666788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114488242496209768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Level
+  Min: 1
+  Max: 13
+  Default: 1
+--- !u!114 &114520116421913526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Spaceship/Spaceship_Hit
+  guid: 838fe2043161fd4ebefc5e69deb34355
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114756891393114688}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114524831135655760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Spaceship/Spaceship_Gun
+  guid: 16a1cba0edb27d4887862c6b5c53c508
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114566964823369892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,13 +428,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Event1
   guid: 99d30d77f02b714ea9c1c0e8dc6cf8b7
-  Banks:
-  - {fileID: 114437253635247576}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: 114741357159248482}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114570727708230686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Spaceship/Spaceship_Attack
+  guid: c686bb648985b449887d9b12deb8f0a4
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114577643849967328
@@ -298,6 +560,63 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &114745220598890830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_3_Die
+  guid: fcfb477dbd188940801b15a2e832cc1c
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114756891393114688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114767741856145828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Spaceship/Spaceship_Die
+  guid: c813e71f0021ca4e881bea4cf1aa9219
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114795004064990622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +632,48 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &114848940268170754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Summon
+  guid: 9be7fe9331577a4f96f7b670015d2ca0
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114903851125555184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_Boss_NoDefense
+  guid: 629d16d3d93d3d429a9c43892152804c
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114936878747374542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,3 +692,46 @@ MonoBehaviour:
   - Name: Desktop
     Value: 520992
   Exists: 1
+--- !u!114 &114959114937538270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/Music/Music_Game
+  guid: b68f4e9347778c4696561d7bba9c58ad
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114488242496209768}
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114963026889300870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ingame/SFXs/Enemies/Enemy_1_Die
+  guid: 1e8f0cf86143b24a82a74e377cd42c86
+  Banks:
+  - {fileID: 114413624002644844}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20

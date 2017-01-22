@@ -412,6 +412,11 @@ Prefab:
       objectReference: {fileID: 2119587}
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1708571969}
+    - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+        type: 2}
       propertyPath: waveBar
       value: 
       objectReference: {fileID: 1682415778}
@@ -425,11 +430,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1879561624}
-    - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
-        type: 2}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1708571969}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bcd4b84160c64d3dbf2be2170819a7c, type: 2}
   m_IsPrefabParent: 0
@@ -623,7 +623,7 @@ Prefab:
     - target: {fileID: 224187340604703018, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1816962119959342, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}
       propertyPath: m_IsActive

@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114982725906276534}
   - component: {fileID: 114613357546707050}
   - component: {fileID: 114049708883258242}
+  - component: {fileID: 114357688979709332}
+  - component: {fileID: 114086801620941040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -100,6 +102,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shake_decay: 0
   shake_intensity: 0
+--- !u!114 &114086801620941040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630909243605748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Ingame/Music/Music_Game
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Level
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &114357688979709332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630909243605748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 0
+  Banks:
+  - Master Bank
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!114 &114613357546707050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,6 +185,7 @@ MonoBehaviour:
   normalBackground: {fileID: 0}
   cutsceneBackground: {fileID: 0}
   time: 0
+  canvas: {fileID: 0}
   waveBar: {fileID: 0}
   waveValue: {fileID: 0}
   wave1: {fileID: 1496739856975608, guid: d34fd796748ee1545920ad2a9aa478d4, type: 2}
