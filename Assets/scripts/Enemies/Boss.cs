@@ -4,6 +4,7 @@ using System.Linq;
 using FluentBehaviourTree;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Collections;
 
 /// <summary>
 /// The final boss of the game
@@ -11,6 +12,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Boss : MonoBehaviour, IEnemy
 {
+    public GameObject canvas;
     [SerializeField]
     private float startingHP = 4f;
 
@@ -258,14 +260,17 @@ public class Boss : MonoBehaviour, IEnemy
         if (currentHP <= 0f)
         {
             gameManager.enemiesAlive--;
-            /*Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            gameManager.bossDead = true;
+            canvas.SetActive(false);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Instantiate(pixelExplosion, transform.position, Quaternion.identity);
             Instantiate(bigExplosion, transform.position, Quaternion.identity);
-            Instantiate(bigExplosion, transform.position, Quaternion.identity);*/
-            StartCoroutine("waveCooldown");
+            Instantiate(bigExplosion, transform.position, Quaternion.identity);
+            Instantiate(pixelExplosion, transform.position, Quaternion.identity);
+            Instantiate(bigExplosion, transform.position, Quaternion.identity);
+            Instantiate(bigExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -274,28 +279,4 @@ public class Boss : MonoBehaviour, IEnemy
     {
         ui.SetHealthBarVisible(false);
     }
-
-   /* IEnumerator waveCooldown()
-    {
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.2f);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.3ff);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(bigExplosion, transform.position, Quaternion.identity);
-        Instantiate(bigExplosion, transform.position, Quaternion.identity);
-        Instantiate(pixelExplosion, transform.position, Quaternion.identity);
-        Instantiate(bigExplosion, transform.position, Quaternion.identity);
-        Instantiate(bigExplosion, transform.position, Quaternion.identity);
-    }*/
 }

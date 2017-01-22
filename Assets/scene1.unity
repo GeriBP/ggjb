@@ -402,6 +402,16 @@ Prefab:
       objectReference: {fileID: 1879561624}
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
+      propertyPath: normalBackground
+      value: 
+      objectReference: {fileID: 116458221}
+    - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+        type: 2}
+      propertyPath: cutsceneBackground
+      value: 
+      objectReference: {fileID: 2119587}
+    - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
+        type: 2}
       propertyPath: waveBar
       value: 
       objectReference: {fileID: 1682415778}
@@ -417,14 +427,9 @@ Prefab:
       objectReference: {fileID: 1879561624}
     - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
         type: 2}
-      propertyPath: normalBackground
+      propertyPath: canvas
       value: 
-      objectReference: {fileID: 116458221}
-    - target: {fileID: 114982725906276534, guid: 5bcd4b84160c64d3dbf2be2170819a7c,
-        type: 2}
-      propertyPath: cutsceneBackground
-      value: 
-      objectReference: {fileID: 2119587}
+      objectReference: {fileID: 1708571969}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bcd4b84160c64d3dbf2be2170819a7c, type: 2}
   m_IsPrefabParent: 0
@@ -618,6 +623,10 @@ Prefab:
     - target: {fileID: 224187340604703018, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
         type: 2}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816962119959342, guid: 9f9bdab2f1ec3844e8329ba86bda3493, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -686,6 +695,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 797604764}
   m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!223 &1708571969 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223289210610410324, guid: 9f9bdab2f1ec3844e8329ba86bda3493,
+    type: 2}
+  m_PrefabInternal: {fileID: 797604764}
 --- !u!1 &1879561619 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1401695259562210, guid: a7c24e2985509494da656fab59d84b76,

@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour {
     private GameObject normalBackground, cutsceneBackground;
 
     public int time;
+    public Canvas canvas;
     public Slider waveBar;
     public Text waveValue;
     public GameObject wave1;
@@ -19,6 +20,7 @@ public class gameManager : MonoBehaviour {
     public static int enemiesAlive;
     private GameObject currentGo;
     public playerMove player;
+    public static bool bossDead = false;
     // Use this for initialization
     void Start () {
         time = 0;
@@ -111,14 +113,18 @@ public class gameManager : MonoBehaviour {
             }
             else //end game
             {
+                canvas.enabled = false;
+                bossDead = true;
                 Debug.Log("End game");
         
-               /* GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("PickUp");
+               GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("PickUp");
 
                 for (var i = 0; i < gameObjects.Length; i++)
                 {
                     Destroy(gameObjects[i]);
-                }*/
+                }
+                Destroy(GameObject.Find("finalShockW(Clone)"));
+
                 normalBackground.SetActive(false);
                 cutsceneBackground.SetActive(true);
                 player.gameObject.SetActive(false);
@@ -129,6 +135,7 @@ public class gameManager : MonoBehaviour {
         }
         yield return new WaitForSeconds(0.1f);
         StartCoroutine("spawner");
+
     }
 
     IEnumerator GoToIntroAfterDelay()
