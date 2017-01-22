@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using FluentBehaviourTree;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -9,6 +10,7 @@ using UnityEngine.Assertions;
 /// Enemy that moves towards the player and shoots at them
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class Shooter : MonoBehaviour, IEnemy
 {
 	[SerializeField]
@@ -41,6 +43,8 @@ public class Shooter : MonoBehaviour, IEnemy
 	private float projectileSpeed = 5f;
 
 	private new Rigidbody2D rigidbody;
+	private StudioEventEmitter gunSoundEmitter;
+	private StudioEventEmitter deathSoundEmitter;
 
 	private IBehaviourTreeNode behaviour;
 
@@ -56,6 +60,11 @@ public class Shooter : MonoBehaviour, IEnemy
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull(rigidbody, "Enemy must have a rigidbody attached to it");
+
+		var soundEmitters = GetComponents<StudioEventEmitter>();
+		Assert.IsTrue(soundEmitters.Length == 2, "Shoot requires two sound emitters");
+		gunSoundEmitter = soundEmitters[0];
+		deathSoundEmitter = soundEmitters[1];
 	}
 
     // Use this for initialization
@@ -91,6 +100,8 @@ public class Shooter : MonoBehaviour, IEnemy
 		var projectile = Instantiate(projectilePrefab, shootPoint.transform.position, Quaternion.identity);
 		projectile.MovementSpeed = projectileSpeed;
 		projectile.Direction = (target.position - transform.position).normalized;
+
+		gunSoundEmitter.Play();
 
 		timeLastShotFired = Time.time;
 		return BehaviourTreeStatus.Success;
@@ -128,6 +139,9 @@ public class Shooter : MonoBehaviour, IEnemy
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
         Instantiate(ex2, transform.position, Quaternion.identity);
         Instantiate(shooterPs, transform.position, Quaternion.identity);
+
+		deathSoundEmitter.Play();
+
         gameManager.enemiesAlive--;
         Destroy(gameObject);
     }
