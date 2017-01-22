@@ -62,7 +62,7 @@ public class Shooter : MonoBehaviour, IEnemy
 		Assert.IsNotNull(rigidbody, "Enemy must have a rigidbody attached to it");
 
 		var soundEmitters = GetComponents<StudioEventEmitter>();
-		Assert.IsTrue(soundEmitters.Length == 2, "Shoot requires two sound emitters");
+		Assert.IsTrue(soundEmitters.Length == 2, "Shooter requires two sound emitters");
 		gunSoundEmitter = soundEmitters[0];
 		deathSoundEmitter = soundEmitters[1];
 	}

@@ -5,11 +5,13 @@ using FluentBehaviourTree;
 using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections;
+using FMODUnity;
 
 /// <summary>
 /// The final boss of the game
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class Boss : MonoBehaviour, IEnemy
 {
     public GameObject canvas;
@@ -64,6 +66,9 @@ public class Boss : MonoBehaviour, IEnemy
 
     private new Rigidbody2D rigidbody;
 
+    private StudioEventEmitter gunSound;
+    private StudioEventEmitter shieldDownSound;
+
     private BossHealthUI ui;
 
     private IBehaviourTreeNode behaviour;
@@ -101,6 +106,11 @@ public class Boss : MonoBehaviour, IEnemy
 
         ui = FindObjectOfType<BossHealthUI>();
         Assert.IsNotNull(ui);
+
+		var soundEmitters = GetComponents<StudioEventEmitter>();
+		Assert.IsTrue(soundEmitters.Length == 2, "Boss requires two sound emitters");
+		gunSound = soundEmitters[0];
+		shieldDownSound = soundEmitters[1];
     }
 
     void Start()
@@ -206,8 +216,19 @@ public class Boss : MonoBehaviour, IEnemy
 
     private BehaviourTreeStatus SetShieldEnabled(bool enabled)
     {
+        // Early out if the state of the shield already matches
+        if (shieldActive == enabled)
+        {
+            return BehaviourTreeStatus.Success;
+        }
+
         shield.SetActive(enabled);
         shieldActive = enabled;
+
+        if (!shieldActive)
+        {
+            shieldDownSound.Play();
+        }
 
         return BehaviourTreeStatus.Success;
     }
@@ -218,6 +239,8 @@ public class Boss : MonoBehaviour, IEnemy
 		SpawnProjectile(transform.rotation * new Vector2(1, -1).normalized);
 		SpawnProjectile(transform.rotation * new Vector2(-1, -1).normalized);
 		SpawnProjectile(transform.rotation * new Vector2(-1, 1).normalized);
+
+        gunSound.Play();
 
 		timeLastFired = Time.time;
 		return BehaviourTreeStatus.Success;
