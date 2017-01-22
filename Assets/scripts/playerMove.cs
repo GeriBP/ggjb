@@ -80,6 +80,9 @@ public class playerMove : MonoBehaviour {
                 GM.waveBar.value = 0;
             }
         }
+
+        var overallVelocity = Mathf.Clamp01(myRb.velocity.magnitude / 8f);
+        engineSoundEmitter.SetParameter("RPM", overallVelocity);
     }
 
     void FixedUpdate()
