@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 212348496841642270}
   - component: {fileID: 95721910023814038}
   - component: {fileID: 58290278524852866}
+  - component: {fileID: 114464499410791296}
   m_Layer: 13
   m_Name: Kamikaze
   m_TagString: Risk
@@ -127,6 +128,28 @@ MonoBehaviour:
   ex2: {fileID: 1574520607669376, guid: 877db1aa98d4c0047ad5fd6336739e66, type: 2}
   shooterPs: {fileID: 1997705508156116, guid: 31c95cca9efd0724cb4523513ee8b42d, type: 2}
   movementSpeed: 5
+--- !u!114 &114464499410791296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613140923622430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Ingame/SFXs/Enemies/Enemy_3_Die
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!212 &212348496841642270
 SpriteRenderer:
   m_ObjectHideFlags: 1

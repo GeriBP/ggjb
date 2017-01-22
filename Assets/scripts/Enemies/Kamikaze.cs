@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -8,6 +9,7 @@ using UnityEngine.Assertions;
 /// Enemy that flys towards the player and then blows up.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class Kamikaze : MonoBehaviour, IEnemy
 {
 	[SerializeField]
@@ -23,10 +25,14 @@ public class Kamikaze : MonoBehaviour, IEnemy
 	/// </summary>
 	private Transform target;
 
+	private StudioEventEmitter soundEmitter;
+
 	void Awake()
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull(rigidbody, "Enemy must have a rigidbody attached to it");
+		soundEmitter = GetComponent<StudioEventEmitter>();
+		Assert.IsNotNull(soundEmitter, "Drone must have a StudioEventEmitter attached to it.");
 	}
 
     // Use this for initialization
@@ -74,6 +80,9 @@ public class Kamikaze : MonoBehaviour, IEnemy
         Instantiate(pixelExplosion, transform.position, Quaternion.identity);
         Instantiate(ex2, transform.position, Quaternion.identity);
         Instantiate(shooterPs, transform.position, Quaternion.identity);
+
+		soundEmitter.Play();
+
         gameManager.enemiesAlive--;
         Destroy(gameObject);
     }
